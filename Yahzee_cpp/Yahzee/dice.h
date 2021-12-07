@@ -11,6 +11,9 @@ namespace coo_yahtzee {
 
 	public:
 
+		// Getters
+		int get_value() const;
+
 	protected:
 
 	private:

@@ -15,20 +15,20 @@ namespace coo_yahtzee {
 
 	public:
 
-		roll();
+		roll(const std::vector<dice*>& dices);
 		roll(const roll&);
 		~roll();
 
 	private:
 
-		std::vector<dice> c_dices;
-		int round_count = 0;
+		std::vector<dice*> c_dices;
+		int round_count;
 
 		// Roll all dices
-		void roll_dices() const;
+		void roll_dices();
 
-		// Roll one or more than one dice
-		void roll_dice(std::vector<int> positions) const;
+		// Roll one or several dices by their positions
+		void roll_dice(const std::vector<int>& positions);
 
 		// Get the count of a value among dices
 		int get_number_of(const int& value) const;

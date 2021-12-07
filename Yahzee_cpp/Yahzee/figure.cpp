@@ -1,1 +1,48 @@
 #include "figure.h"
+
+coo_yahtzee::figure::figure(const std::string& name)
+	: c_name(name) {
+	score_ = 0;
+	scored_ = false;
+}
+
+coo_yahtzee::figure::figure(const figure& fig)
+	: c_name(fig.c_name) {
+	score_ = fig.score_;
+	scored_ = fig.scored_;
+}
+
+bool coo_yahtzee::figure::check_figure(const std::vector<dice*>&) const {
+	return true;
+}
+
+int coo_yahtzee::figure::get_score(const std::vector<dice*>& game) const {
+
+	int count = 0;
+
+	for (const dice* d : game)
+		count += d->get_value();
+
+	return count;
+}
+
+void coo_yahtzee::figure::scored(const std::vector<dice*>& game) {
+	scored_ = true;
+	score_ = get_score(game);
+}
+
+std::ostream& coo_yahtzee::figure::to_string(std::ostream& out) const {
+	out << c_name << " = " << score_;
+}
+
+std::ostream& coo_yahtzee::figure::preview(std::ostream& out) const {
+	out << c_name << "(" << score_ << ")";
+}
+
+std::ostream& coo_yahtzee::operator<<(std::ostream& out, const figure& fig) {
+
+	if (!fig.scored_)
+		return fig.preview(out);
+
+	return fig.to_string(out);
+}
