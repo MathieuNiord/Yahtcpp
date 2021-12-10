@@ -1,2 +1,2 @@
 # Yahtzee_cpp
-An evaluated project in cpp which emulates a Yahtzee game included several difficulty mode
+A graded project in cpp which emulates a Yahtzee game included several difficulty mode
