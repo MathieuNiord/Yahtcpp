@@ -16,8 +16,9 @@ namespace coo_yahtzee {
 
 	private :
 
-		const int number_of_players;
-		std::vector<>
+		const int number_of_players_;
+		std::vector<player*> players_;
+		std::vector<dice*> dices_;
 
 	};
 
