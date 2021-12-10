@@ -10,14 +10,14 @@ namespace coo_yahtzee {
 
 	public:
 
+		dice();
+
 		// Getter
 		int get_value() const;
 
 	private:
 
-		int value;
-
-		dice(const int& value);
+		int value_;
 
 		void roll();
 		bool operator<(const dice&) const;

@@ -2,9 +2,7 @@
 
 #pragma once
 
-#include <iostream>
-#include <algorithm>
-#include <vector>
+#include "resources.h"
 #include "dice.h"
 
 namespace coo_yahtzee {

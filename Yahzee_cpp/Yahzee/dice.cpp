@@ -2,16 +2,18 @@
 
 #include "dice.h"
 
-#include <random>
+coo_yahtzee::dice::dice() {
+	value_ = max_dice_value;
+}
 
 int coo_yahtzee::dice::get_value() const {
-	return value;
+	return value_;
 }
 
 void coo_yahtzee::dice::roll() {
-	value = rand() % max_dice_value + min_dice_value;
+	value_ = rand() % max_dice_value + min_dice_value;
 }
 
 bool coo_yahtzee::dice::operator<(const dice& d) const {
-	return value < d.value;
+	return value_ < d.value_;
 }

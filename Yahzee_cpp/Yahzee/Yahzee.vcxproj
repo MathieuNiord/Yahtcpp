@@ -143,6 +143,7 @@
     <ClCompile Include="dice.cpp" />
     <ClCompile Include="figure.cpp" />
     <ClCompile Include="full_house.cpp" />
+    <ClCompile Include="game.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="player.cpp" />
     <ClCompile Include="roll.cpp" />
@@ -154,6 +155,7 @@
     <ClInclude Include="figure.h" />
     <ClInclude Include="fig_superior.h" />
     <ClInclude Include="full_house.h" />
+    <ClInclude Include="game.h" />
     <ClInclude Include="many_of_kind.h" />
     <ClInclude Include="player.h" />
     <ClInclude Include="resources.h" />

@@ -2,8 +2,6 @@
 
 #pragma once
 
-#include <iostream>
-#include <vector>
 #include "resources.h"
 #include "dice.h"
 
@@ -19,7 +17,7 @@ namespace coo_yahtzee {
 
 	private:
 
-		std::vector<dice*> c_dices_;
+		std::vector<dice*> dices_;
 		int round_count_;
 
 		// Roll all dices

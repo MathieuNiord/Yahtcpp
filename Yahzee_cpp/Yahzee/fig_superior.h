@@ -2,7 +2,6 @@
 
 #pragma once
 
-#include <string>
 #include "figure.h"
 
 namespace coo_yahtzee {

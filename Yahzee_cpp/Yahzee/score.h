@@ -2,8 +2,6 @@
 
 #pragma once
 
-#include <iostream>
-#include <vector>
 #include "resources.h"
 #include "figure.h"
 #include  "fig_superior.h"
