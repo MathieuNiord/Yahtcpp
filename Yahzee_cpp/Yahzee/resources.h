@@ -33,4 +33,7 @@ namespace coo_yahtzee {
 	constexpr int max_superiors = 6;
 	constexpr int max_inferiors = 7;
 
+	// Game
+	constexpr int total_rounds = 13;
+
 }
