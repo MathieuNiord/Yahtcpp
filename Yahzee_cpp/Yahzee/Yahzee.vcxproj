@@ -140,34 +140,26 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="chance.cpp" />
     <ClCompile Include="dice.cpp" />
     <ClCompile Include="figure.cpp" />
-    <ClCompile Include="fig_superior.cpp" />
-    <ClCompile Include="four_of_kind.cpp" />
     <ClCompile Include="full_house.cpp" />
-    <ClCompile Include="large_straight.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="player.cpp" />
     <ClCompile Include="roll.cpp" />
     <ClCompile Include="score.cpp" />
-    <ClCompile Include="small_straight.cpp" />
-    <ClCompile Include="three_of_kind.cpp" />
     <ClCompile Include="yahtzee.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="chance.h" />
     <ClInclude Include="dice.h" />
     <ClInclude Include="figure.h" />
     <ClInclude Include="fig_superior.h" />
-    <ClInclude Include="four_of_kind.h" />
     <ClInclude Include="full_house.h" />
-    <ClInclude Include="large_straight.h" />
+    <ClInclude Include="many_of_kind.h" />
     <ClInclude Include="player.h" />
+    <ClInclude Include="resources.h" />
     <ClInclude Include="roll.h" />
     <ClInclude Include="score.h" />
-    <ClInclude Include="small_straight.h" />
-    <ClInclude Include="three_of_kind.h" />
+    <ClInclude Include="straight.h" />
     <ClInclude Include="yahtzee.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

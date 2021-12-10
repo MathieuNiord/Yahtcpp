@@ -1,3 +1,5 @@
+/* Authors : Frejoux G. & Niord M. */
+
 #include "score.h"
 
 coo_yahtzee::score::score() {
@@ -9,12 +11,22 @@ coo_yahtzee::score::score() {
 }
 
 void coo_yahtzee::score::init_inferiors() {
-	scored_inferiors.reserve(MAX_INFERIORS);
+
+	scored_inferiors.reserve(max_inferiors);
+
+	add_inf(new many_of_kind<three_of_kind>("Brelan"));
+	add_inf(new many_of_kind<four_of_kind>("Carré"));
+	add_inf(new full_house());
+	add_inf(new straight<4>("Petite Suite"));
+	add_inf(new straight<5>("Grande Suite"));
+	add_inf(new yahtzee());
+	add_inf(new many_of_kind<0>("Chance"));
+
 }
 
 void coo_yahtzee::score::init_superiors() {
 
-	scored_superiors.reserve(MAX_SUPERIORS);
+	scored_superiors.reserve(max_superiors);
 
 	add_sup(new fig_superior<1>());
 	add_sup(new fig_superior<2>());
@@ -33,8 +45,8 @@ void coo_yahtzee::score::compute_score() {
 		if (sup->scored_)
 			score_ += sup->score_;
 
-	if (score_ >= BONUS_START)
-		score_ += BONUS;
+	if (score_ >= bonus_start)
+		score_ += bonus;
 
 	for (const figure* inf : scored_inferiors)
 		if (inf->scored_)

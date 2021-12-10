@@ -4,25 +4,15 @@
 
 #include <iostream>
 #include <vector>
-#include "fig_inferior.h"
+#include "resources.h"
+#include "figure.h"
 #include  "fig_superior.h"
+#include "many_of_kind.h"
+#include "full_house.h"
+#include "yahtzee.h"
+#include "straight.h"
 
 namespace coo_yahtzee {
-
-	constexpr int BONUS_START = 63;
-	constexpr int BONUS = 35;
-
-	constexpr int MAX_SUPERIORS = 6;
-	constexpr int MAX_INFERIORS = 7;
-
-	constexpr int ONE = 1;
-	constexpr int TWO = 2;
-	constexpr int THREE = 3;
-	constexpr int FOUR = 4;
-	constexpr int FIVE = 5;
-	constexpr int SIX = 6;
-
-	constexpr int VALUES[6] = {ONE, TWO, THREE, FOUR, FIVE, SIX};
 
 	class score {
 

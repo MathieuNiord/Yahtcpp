@@ -6,29 +6,21 @@
 
 namespace coo_yahtzee {
 
-	namespace inferior_figure {
+	class yahtzee : public figure {
 
-		constexpr int MAX_YAHTZEE = 2;
+	public:
 
-		class yahtzee : public figure {
+		yahtzee();
 
-		public:
+	protected:
 
-			yahtzee();
-			yahtzee(const yahtzee&);
-			~yahtzee();
+		bool check_figure(const std::vector<dice*>&) const override;
+		int get_score_preview(const std::vector<dice*>&) const override;
 
-		protected:
+	private:
 
-			bool check_figure(const std::vector<dice*>&) const override;
-			int get_score(const std::vector<dice*>&) const override;
+		int count_;
 
-		private:
-
-			int count;
-
-		};
-
-	}
+	};
 
 }

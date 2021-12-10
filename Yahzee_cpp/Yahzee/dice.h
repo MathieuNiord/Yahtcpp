@@ -2,31 +2,28 @@
 
 #pragma once
 
-namespace coo_yahtzee {
+#include "resources.h"
 
-	constexpr int MIN = 1;
-	constexpr int MAX = 6;
+namespace coo_yahtzee {
 
 	class dice {
 
 	public:
 
-		// Getters
+		// Getter
 		int get_value() const;
-
-	protected:
 
 	private:
 
 		int value;
 
 		dice(const int& value);
-		dice(const dice&);
-		~dice();
 
 		void roll();
+		bool operator<(const dice&) const;
 
 		friend class roll;
+		friend class figure;
 
 	};
 

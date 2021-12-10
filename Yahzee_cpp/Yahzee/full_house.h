@@ -6,23 +6,18 @@
 
 namespace coo_yahtzee {
 
-	namespace inferior_figure {
+	class full_house : public figure {
 
-		class full_house : public figure {
+	public:
 
-		public:
+		full_house();
 
-			full_house();
-			full_house(const full_house&);
-			~full_house();
+	private:
 
-		protected:
+		bool check_figure(const std::vector<dice*>&) const override;
+		int get_score_preview(const std::vector<dice*>&) const override;
 
-		private:
-
-		};
-
-	}
+	};
 
 }
 

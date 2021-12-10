@@ -14,14 +14,13 @@ namespace coo_yahtzee {
 
 	public:
 
-		player(const int& id, const std::string& name);
+		player(const std::string& name);
 		player(const player&);
 		~player();
 
 	protected:
 
-		const int c_id;
-		const std::string c_name;
+		const std::string c_name_;
 		std::vector<figure*> remaining_figures;
 		score* player_score;
 

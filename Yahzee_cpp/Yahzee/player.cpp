@@ -1,14 +1,14 @@
 #include "player.h"
 
 coo_yahtzee::player::player(const int& id, const std::string& name)
-	: c_id(id), c_name(name) {
+	: c_id(id), c_name_(name) {
 
 	player_score = new score();
 	init_figures();
 }
 
 coo_yahtzee::player::player(const player& p)
-	: c_id(p.c_id), c_name(p.c_name) {
+	: c_id(p.c_id), c_name_(p.c_name_) {
 
 	player_score = p.player_score;
 

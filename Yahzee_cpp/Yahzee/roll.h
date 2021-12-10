@@ -4,12 +4,10 @@
 
 #include <iostream>
 #include <vector>
+#include "resources.h"
 #include "dice.h"
 
 namespace coo_yahtzee {
-
-	constexpr int NUMBER_OF_DICES = 5;
-	constexpr int MAX_ROUND = 3;
 
 	class roll {
 
@@ -21,8 +19,8 @@ namespace coo_yahtzee {
 
 	private:
 
-		std::vector<dice*> c_dices;
-		int round_count;
+		std::vector<dice*> c_dices_;
+		int round_count_;
 
 		// Roll all dices
 		void roll_dices();
@@ -32,6 +30,9 @@ namespace coo_yahtzee {
 
 		// Get the count of a value among dices
 		int get_number_of(const int& value) const;
+
+		// Sort dices
+		void sort();
 
 	};
 

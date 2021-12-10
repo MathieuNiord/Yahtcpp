@@ -7,49 +7,48 @@
 
 namespace coo_yahtzee {
 
-	template <int value>
+	template <const int Value>
 	class fig_superior : public figure {
 
 	public:
 
-	protected:
-
 		fig_superior();
-		//fig_superior(const fig_superior&);
-		~fig_superior() override = default;
+
+	protected:
 
 	private:
 
-		virtual bool check_figure(const std::vector<dice*>&) const override;
-		virtual int get_score(const std::vector<dice*>&) const override;
+		bool check_figure(const std::vector<dice*>&) const override;
+		int get_score_preview(const std::vector<dice*>&) const override;
 
 		friend class score;
-		
+
 	};
 
-	template <int value>
-	fig_superior<value>::fig_superior() : figure(std::to_string(value))
+	template <const int Value>
+	fig_superior<Value>::fig_superior() : figure(std::to_string(Value))
 	{}
 
-	template <int value>
-	bool fig_superior<value>::check_figure(const std::vector<dice*>& game) const {
+	template <const int Value>
+	bool fig_superior<Value>::check_figure(const std::vector<dice*>& game) const {
 
 		for (const dice* d : game)
-			if (d->get_value() == value)
+			if (d->get_value() == Value)
 				return true;
 
 		return false;
 	}
 
-	template <int value>
-	int fig_superior<value>::get_score(const std::vector<dice*>& game) const {
+	template <const int Value>
+	int fig_superior<Value>::get_score_preview(const std::vector<dice*>& game) const {
 
-		int count = NULL;
+		int count = 0;
 
 		for (const dice* d : game)
-			if (d->get_value() == value)
+			if (d->get_value() == Value)
 				count++;
 
-		return count;
+		return count * Value;
 	}
+
 }
