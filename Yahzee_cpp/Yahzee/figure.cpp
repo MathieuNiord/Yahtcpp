@@ -27,10 +27,12 @@ void coo_yahtzee::figure::scored(const std::vector<dice*>& game) {
 
 std::ostream& coo_yahtzee::figure::to_string(std::ostream& out) const {
 	out << c_name_ << " = " << score_;
+	return out;
 }
 
 std::ostream& coo_yahtzee::figure::preview(std::ostream& out) const {
 	out << c_name_ << " (" << score_ << ")";
+	return out;
 }
 
 std::ostream& coo_yahtzee::operator<<(std::ostream& out, const figure& fig) {

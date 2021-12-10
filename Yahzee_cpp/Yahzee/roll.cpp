@@ -62,4 +62,6 @@ std::ostream& coo_yahtzee::operator<<(std::ostream& out, const roll& r) {
 		out << "[" << pos + 1 << "] : " << r.dices_.at(pos)->get_value() << std::endl;
 
 	out << "\n==========================\n";
+
+	return out;
 }

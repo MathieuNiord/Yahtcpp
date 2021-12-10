@@ -30,11 +30,12 @@ namespace coo_yahtzee {
 	template <const int Number>
 	bool straight<Number>::check_figure(const std::vector<dice*>& game) const {
 
-		std::sort(game.begin(), game.end());
+		std::vector<dice*> game_sorted(game);
+		std::sort(game_sorted.begin(), game_sorted.end());
 		int count = -1;
-		int last_value = game.at(0)->get_value();
+		int last_value = game_sorted.at(0)->get_value();
 
-		for (const dice* d : game) {
+		for (const dice* d : game_sorted) {
 
 			if (d->get_value() == last_value)
 				count++;

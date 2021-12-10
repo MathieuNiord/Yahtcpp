@@ -22,14 +22,14 @@ void coo_yahtzee::player::play_round(const std::vector<dice*>& game) {
 	std::cout << p_roll;
 	std::cout << player_score;
 
-	while (p_roll.round_count_ < max_round) {
+	/*while (p_roll.round_count_ < max_round) {
 
-	}
+	}*/
 
 
 
 }
 
 std::ostream& coo_yahtzee::operator<<(std::ostream& out, const player&) {
-	// TODO: insérer une instruction return ici
+	return out;
 }

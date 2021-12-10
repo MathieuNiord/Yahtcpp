@@ -28,6 +28,7 @@ namespace coo_yahtzee {
 		void play_round(const std::vector<dice*>&);
 
 		friend std::ostream& operator<<(std::ostream& out, const player&);
+		friend class game;
 
 	};
 

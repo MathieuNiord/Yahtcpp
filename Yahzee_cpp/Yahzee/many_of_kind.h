@@ -51,7 +51,7 @@ namespace coo_yahtzee {
 
 		int score = 0;
 
-		if (check_figure())
+		if (check_figure(game))
 			for (const dice* d : game)
 				score += d->get_value();
 

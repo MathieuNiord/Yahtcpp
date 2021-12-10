@@ -34,6 +34,9 @@ namespace coo_yahtzee {
 		void add_inf(figure*); // Add a figure to the inferior part
 		void add_sup(figure*); // Add a figure to the superior part
 
+		// --- Display ---
+		void display_score(std::ostream& out) const;
+
 		friend std::ostream& operator<<(std::ostream& out, const score&);
 		friend class player;
 	};
