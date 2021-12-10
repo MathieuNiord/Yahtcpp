@@ -25,8 +25,7 @@ namespace coo_yahtzee {
 
 	private:
 
-		// Initialize the figure's list at the beginning of the game
-		void init_figures() const;
+		void play_round(const std::vector<dice*>&);
 
 		friend std::ostream& operator<<(std::ostream& out, const player&);
 

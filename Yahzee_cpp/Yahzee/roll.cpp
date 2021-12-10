@@ -12,8 +12,8 @@ coo_yahtzee::roll::roll(const roll& r)
 
 coo_yahtzee::roll::~roll() {
 
-	for (const dice* d : dices_)
-			delete d;
+	for (dice* d : dices_)
+		delete d;
 
 	dices_.clear();
 }
