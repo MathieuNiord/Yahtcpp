@@ -23,6 +23,8 @@ void coo_yahtzee::roll::roll_dices() {
 	for (dice* d : dices_)
 		d->roll();
 
+	sort();
+
 	round_count_++;
 }
 
@@ -31,6 +33,8 @@ void coo_yahtzee::roll::roll_dice(const	std::vector<int>& positions) {
 	for (const int& pos : positions)
 		if (pos > min_dice_value - 1 && pos < max_dice_value - 1)
 			dices_.at(pos)->roll();
+
+	sort();
 
 	round_count_++;
 }
@@ -48,4 +52,14 @@ int coo_yahtzee::roll::get_number_of(const int& value) const {
 
 void coo_yahtzee::roll::sort() {
 	std::sort(dices_.begin(), dices_.end());
+}
+
+std::ostream& coo_yahtzee::operator<<(std::ostream& out, const roll& r) {
+
+	out << "========= Lancer =========\n\n";
+
+	for (int pos = 0; pos < number_of_dices; pos++)
+		out << "[" << pos + 1 << "] : " << r.dices_.at(pos)->get_value() << std::endl;
+
+	out << "\n==========================\n";
 }

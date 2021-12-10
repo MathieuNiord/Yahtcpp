@@ -14,8 +14,20 @@ coo_yahtzee::player::~player() {
 	delete player_score;
 }
 
-void coo_yahtzee::player::play_round(const std::vector<dice*>&)
-{
+void coo_yahtzee::player::play_round(const std::vector<dice*>& game) {
+
+	roll p_roll = roll(game);
+	p_roll.roll_dices();
+
+	std::cout << p_roll;
+	std::cout << player_score;
+
+	while (p_roll.round_count_ < max_round) {
+
+	}
+
+
+
 }
 
 std::ostream& coo_yahtzee::operator<<(std::ostream& out, const player&) {
