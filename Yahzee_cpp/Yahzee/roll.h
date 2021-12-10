@@ -32,7 +32,12 @@ namespace coo_yahtzee {
 		// Sort dices
 		void sort();
 
+		friend std::ostream& operator<<(std::ostream& out, const roll&);
+		friend class player;
+
 	};
+
+	std::ostream& operator<<(std::ostream& out, const roll&);
 
 }
 
