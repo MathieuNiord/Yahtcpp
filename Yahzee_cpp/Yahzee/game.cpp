@@ -15,3 +15,12 @@ coo_yahtzee::game::game(const int& number_of_player) : number_of_players_(number
 		dices_.push_back(new dice());
 	}
 }
+
+void coo_yahtzee::game::play() const
+{
+	for (int round = 0; round < 13; round++) {
+		for (int player = 0; player < number_of_players_; player++) {
+			//TODO player turn
+		}
+	}
+}

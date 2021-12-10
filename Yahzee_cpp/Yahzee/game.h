@@ -20,6 +20,8 @@ namespace coo_yahtzee {
 		std::vector<player*> players_;
 		std::vector<dice*> dices_;
 
+		void play() const;
+
 	};
 
 }
