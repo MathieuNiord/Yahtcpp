@@ -14,12 +14,19 @@ namespace coo_yahtzee {
 
 	protected:
 
-		bool check_figure(const std::vector<dice*>&) const override;
-		int get_score_preview(const std::vector<dice*>&) const override;
-
 	private:
 
 		int count_;
+
+		// --- Methods ---
+
+		bool check_figure(const std::vector<dice*>&) const override;
+
+		// --- Getter ---
+		int get_score_preview(const std::vector<dice*>&) const override;
+
+		// --- Setter ---
+		void set_score(const std::vector<dice*>&) override;
 
 	};
 

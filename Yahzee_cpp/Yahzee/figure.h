@@ -28,7 +28,8 @@ namespace coo_yahtzee {
 		virtual int get_score_preview(const std::vector<dice*>&) const = 0; // Gets the score based on the current roll
 
 		// --- Setters ---
-		void scored(const std::vector<dice*>&);	// Sets scored_ at 'true' and put the computed score into the score_ attribute
+		virtual void set_score(const std::vector<dice*>&);	// Sets scored_ at 'true' and put the computed score into the score_ attribute
+		virtual void elimine();
 
 		// --- Display ---
 		virtual std::ostream& to_string(std::ostream& out) const;

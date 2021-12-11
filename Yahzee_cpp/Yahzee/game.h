@@ -11,17 +11,18 @@ namespace coo_yahtzee {
 
 	public :
 
-		game(int number_of_player);
+		game(const int& nb_of_player);
 		~game();
 
 	private :
 
-		int number_of_players_;
+		const int number_of_players_;
 		std::vector<player*> players_;
-		std::vector <player*> eliminated;
 		std::vector<dice*> dices_;
+		int eliminated_count_;
 
-		void play() const;
+		void play();
+		void finish();
 
 
 	};

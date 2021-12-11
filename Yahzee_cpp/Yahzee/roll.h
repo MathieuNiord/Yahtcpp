@@ -3,6 +3,7 @@
 #pragma once
 
 #include "resources.h"
+#include "utils.h"
 #include "dice.h"
 
 namespace coo_yahtzee {
@@ -11,7 +12,7 @@ namespace coo_yahtzee {
 
 	public:
 
-		roll(const std::vector<dice*>& dices);
+		roll(std::vector<dice*>& dices);
 		roll(const roll&);
 		~roll();
 
@@ -29,11 +30,9 @@ namespace coo_yahtzee {
 		// Get the count of a value among dices
 		int get_number_of(const int& value) const;
 
-		// Sort dices
-		void sort();
-
 		friend std::ostream& operator<<(std::ostream& out, const roll&);
 		friend class player;
+		friend class Test_Yahtzee;
 
 	};
 

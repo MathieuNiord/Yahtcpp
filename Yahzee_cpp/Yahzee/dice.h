@@ -12,6 +12,9 @@ namespace coo_yahtzee {
 
 		dice();
 
+		//test
+		void roll();
+
 		// Getter
 		int get_value() const;
 
@@ -19,7 +22,7 @@ namespace coo_yahtzee {
 
 		int value_;
 
-		void roll();
+		
 		bool operator<(const dice&) const;
 
 		friend class roll;

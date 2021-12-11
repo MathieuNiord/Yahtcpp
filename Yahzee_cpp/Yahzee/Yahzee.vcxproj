@@ -152,10 +152,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="dice.h" />
+    <ClInclude Include="display.h" />
     <ClInclude Include="figure.h" />
     <ClInclude Include="fig_superior.h" />
     <ClInclude Include="full_house.h" />
     <ClInclude Include="game.h" />
+    <ClInclude Include="utils.h" />
     <ClInclude Include="many_of_kind.h" />
     <ClInclude Include="player.h" />
     <ClInclude Include="resources.h" />

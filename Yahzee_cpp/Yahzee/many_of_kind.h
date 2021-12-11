@@ -38,7 +38,7 @@ namespace coo_yahtzee {
 		std::vector<int> count(max_dice_value, 0);
 
 		for (const dice* d : game) {
-			count.at(d->get_value() - 1)++;
+			count.at(d->get_value() - 1)++;	// Works correctly only if minimum value is upper than 0
 			if (count.at(d->get_value() - 1) == Number)
 				return true;
 		}

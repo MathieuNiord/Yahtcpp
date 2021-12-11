@@ -11,7 +11,7 @@ bool coo_yahtzee::yahtzee::check_figure(const std::vector<dice*>& game) const {
 
 	for (const dice* d : game){
 
-		if (count_values[d->get_value()] > 5)
+		if (count_values.at(d->get_value()) > 5)
 			return true;
 
 		count_values[d->get_value()]++;
@@ -28,3 +28,11 @@ int coo_yahtzee::yahtzee::get_score_preview(const std::vector<dice*>& game) cons
 	return 0;
 }
 
+void coo_yahtzee::yahtzee::set_score(const std::vector<dice*>& game) {
+
+	score_ += get_score_preview(game);
+	count_++;
+
+	if (count_ == 2)
+		scored_ = true;
+}

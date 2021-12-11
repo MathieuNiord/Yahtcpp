@@ -18,6 +18,7 @@ namespace coo_yahtzee {
 	constexpr int number_of_dices = 5;
 	constexpr int max_round = 3;
 
+
 	// Figures
 	constexpr int pair = 2;
 	constexpr int three_of_kind = 3;

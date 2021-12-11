@@ -1,8 +1,8 @@
 #include "game.h"
 
-coo_yahtzee::game::game(int nb_players) {
+coo_yahtzee::game::game(const int& nb_players)
+	: number_of_players_(nb_players) {
 
-	number_of_players_ = nb_players;
 	players_.reserve(nb_players);
 
 	for (int i = 0; i < nb_players; i++) {
@@ -13,16 +13,22 @@ coo_yahtzee::game::game(int nb_players) {
 	}
 
 	for (int i = 0; i < number_of_dices; i++) {
-		dices_.push_back(new dice());
+		dices_.push_back(new dice);
 	}
 }
 
-void coo_yahtzee::game::play() const
+void coo_yahtzee::game::play()
 {
 	for (int round = 0; round < total_rounds; round++) {
 
 		for (int player = 0; player < number_of_players_; player++) {
+
 			//TODO player turn
+
+			if (eliminated_count_ == number_of_players_ - 1) {
+				return finish();
+			}
+
 			std::cout << "========== TOUR " << round + 1 << " ==========\n\n";
 			std::cout << "Au tour de " << players_.at(player)->c_name_ << " (Joueur " << player + 1 << ")\n\n";
 
@@ -30,4 +36,13 @@ void coo_yahtzee::game::play() const
 		}
 
 	}
+}
+
+void coo_yahtzee::game::finish() {
+
+	for (player* player : players_)
+		player->score_all();
+
+	//TODO : finish the game
+
 }

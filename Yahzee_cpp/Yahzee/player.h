@@ -14,18 +14,24 @@ namespace coo_yahtzee {
 	public:
 
 		player(const std::string& name);
-		player(const player&);
 		~player();
+
+		// --- Getter ---
+		int get_score() const;
 
 	protected:
 
 		const std::string c_name_;
-		std::vector<figure*> remaining_figures;
-		score* player_score;
+		std::vector<figure*> remaining_figures_;
+		score* player_score_;
+		bool eliminated_;
+
+		// --- Setter ---
+		void score_all() const;
 
 	private:
 
-		void play_round(const std::vector<dice*>&);
+		void play_round(std::vector<dice*>&);
 
 		friend std::ostream& operator<<(std::ostream& out, const player&);
 		friend class game;
