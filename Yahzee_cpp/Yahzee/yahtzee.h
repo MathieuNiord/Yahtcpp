@@ -12,8 +12,6 @@ namespace coo_yahtzee {
 
 		yahtzee();
 
-	protected:
-
 	private:
 
 		int count_;
