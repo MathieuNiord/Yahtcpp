@@ -18,8 +18,6 @@ namespace coo_yahtzee {
 
 		// --- Methods ---
 
-		bool check_figure(const std::vector<dice*>&) const override;
-
 		// --- Getter ---
 		int get_score(const std::vector<dice*>&) const override;
 

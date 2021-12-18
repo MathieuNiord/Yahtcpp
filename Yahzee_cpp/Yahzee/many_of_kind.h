@@ -26,24 +26,6 @@ namespace coo_yahtzee {
 	many_of_kind<Number>::many_of_kind(const std::string& name)
 		: figure(name) {}
 
-	template<const int Number>
-	bool many_of_kind<Number>::check_figure(const std::vector<dice*>& game) const {
-
-		// Chance case
-		if (Number == 0)
-			return true;
-
-		// Other cases (3|4 of a kind)
-		std::vector<int> count(max_dice_value, 0);
-
-		for (const dice* d : game) {
-			count.at(d->get_value() - 1)++;	// Works correctly only if minimum value is upper than 0
-			if (count.at(d->get_value() - 1) == Number)
-				return true;
-		}
-
-		return false;
-	}
 
 	template <const int Number>
 	int many_of_kind<Number>::get_score(const std::vector<dice*>& game) const {
@@ -57,8 +39,11 @@ namespace coo_yahtzee {
 			score += d->get_value();
 		}
 
+        for (const auto &item : count){
+            if(item >= Number ) return score;
+        }
 
-		return score;
+		return 0;
 	}
 
 }

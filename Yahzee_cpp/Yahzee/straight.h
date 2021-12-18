@@ -18,7 +18,6 @@ namespace coo_yahtzee {
 
 	private:
 
-		bool check_figure(const std::vector<dice*>&) const override;
 		int get_score(const std::vector<dice*>&) const override;
 
 	};
@@ -28,7 +27,7 @@ namespace coo_yahtzee {
 		: figure(name) {}
 
 	template <const int Number>
-	bool straight<Number>::check_figure(const std::vector<dice*>& game) const {
+	int straight<Number>::get_score(const std::vector<dice*>& game) const {
 
         //since dices are sorted by value we can iterate dices and count if there is v next values
 
@@ -39,22 +38,12 @@ namespace coo_yahtzee {
 
             if(game.at(i)->get_value() + 1 == game.at(i+1)->get_value()){
                 cpt++;
-                if (cpt >= Number) return true;
+                if (cpt >= Number) return (Number-1) * 10;
             }
             else cpt = 1;
 
         }
-        return false;
-
-	}
-
-	template <const int Number>
-	int straight<Number>::get_score(const std::vector<dice*>& game) const {
-
-		if (check_figure(game))
-			return (Number - 1) * 10;
-
-		return 0;
+        return 0;
 	}
 
 }

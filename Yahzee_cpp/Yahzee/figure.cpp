@@ -8,10 +8,6 @@ coo_yahtzee::figure::figure(const std::string& name)
 	scored_ = false;
 }
 
-bool coo_yahtzee::figure::check_figure(const std::vector<dice*>&) const {
-	return true;
-}
-
 int coo_yahtzee::figure::get_score(const std::vector<dice*>& game) const {
 
 	int score = 0;

@@ -29,7 +29,7 @@ void coo_yahtzee::game::play()
 
 			//TODO player turn
 
-			if (eliminated_count_ == number_of_players_ - 1) {
+			if (eliminated_count_ == number_of_players_ ) {
 				return finish();
 			}
 

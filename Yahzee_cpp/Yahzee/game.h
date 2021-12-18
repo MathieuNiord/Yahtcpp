@@ -13,6 +13,7 @@ namespace coo_yahtzee {
 
 		game(const int& nb_of_player);
 		~game();
+        void play();
 
 	private :
 
@@ -23,7 +24,6 @@ namespace coo_yahtzee {
 
 		// --- Methods ---
 
-		void play();
 		void finish();
 
 		static void sort_players(std::vector<player*>& players) {
