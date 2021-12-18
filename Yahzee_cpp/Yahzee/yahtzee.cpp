@@ -22,7 +22,7 @@ bool coo_yahtzee::yahtzee::check_figure(const std::vector<dice*>& game) const {
 	return false;
 }
 
-int coo_yahtzee::yahtzee::get_score_preview(const std::vector<dice*>& game) const {
+int coo_yahtzee::yahtzee::get_score(const std::vector<dice*>& game) const {
 
 	if (check_figure(game))
 		return (count_ + 1) * yahtzee_result;
@@ -32,7 +32,7 @@ int coo_yahtzee::yahtzee::get_score_preview(const std::vector<dice*>& game) cons
 
 void coo_yahtzee::yahtzee::set_score(const std::vector<dice*>& game) {
 
-	score_ += get_score_preview(game);
+	score_ += get_score(game);
 	count_++;
 
 	if (count_ == 2)

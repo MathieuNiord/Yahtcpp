@@ -31,7 +31,7 @@ bool coo_yahtzee::full_house::check_figure(const std::vector<dice*>& dices) cons
 
 }
 
-int coo_yahtzee::full_house::get_score_preview(const std::vector<dice*>& game) const {
+int coo_yahtzee::full_house::get_score(const std::vector<dice*>& game) const {
 	if (check_figure(game))
 		return full_result;
 	return 0;

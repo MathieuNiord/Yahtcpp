@@ -122,7 +122,7 @@ void coo_yahtzee::score::display_figure_possibility(int& count, const figure* fi
 		count++;
 
 		const std::string name = fig->c_name_;
-		const int preview = fig->get_score_preview(dices);
+		const int preview = fig->get_score(dices);
 		const auto name_len = static_cast<int>(name.size());
 		const auto score_len = static_cast<int>(std::to_string(preview).size());
 		const auto count_len = static_cast<int>(std::to_string(count).size());

@@ -18,8 +18,7 @@ namespace coo_yahtzee {
 
 	private:
 
-		bool check_figure(const std::vector<dice*>&) const override;
-		int get_score_preview(const std::vector<dice*>&) const override;
+		int get_score(const std::vector<dice*>&) const override;
 
 	};
 
@@ -47,13 +46,17 @@ namespace coo_yahtzee {
 	}
 
 	template <const int Number>
-	int many_of_kind<Number>::get_score_preview(const std::vector<dice*>& game) const {
+	int many_of_kind<Number>::get_score(const std::vector<dice*>& game) const {
+
+		std::vector<int> count(max_dice_value, 0);
 
 		int score = 0;
 
-		if (check_figure(game))
-			for (const dice* d : game)
-				score += d->get_value();
+		for (const dice* d : game) {
+			count.at(d->get_value() - 1)++;
+			score += d->get_value();
+		}
+
 
 		return score;
 	}

@@ -17,8 +17,7 @@ namespace coo_yahtzee {
 
 	private:
 
-		bool check_figure(const std::vector<dice*>&) const override;
-		int get_score_preview(const std::vector<dice*>&) const override;
+		int get_score(const std::vector<dice*>&) const override;
 
 		friend class score;
 
@@ -28,18 +27,9 @@ namespace coo_yahtzee {
 	fig_superior<Value>::fig_superior() : figure(std::to_string(Value))
 	{}
 
-	template <const int Value>
-	bool fig_superior<Value>::check_figure(const std::vector<dice*>& game) const {
-
-		for (const dice* d : game)
-			if (d->get_value() == Value)
-				return true;
-
-		return false;
-	}
 
 	template <const int Value>
-	int fig_superior<Value>::get_score_preview(const std::vector<dice*>& game) const {
+	int fig_superior<Value>::get_score(const std::vector<dice*>& game) const {
 
 		int count = 0;
 
