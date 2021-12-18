@@ -7,6 +7,7 @@
 #include <iomanip>
 #include <vector>
 #include <algorithm>
+#include <sstream>
 
 namespace coo_yahtzee {
 
@@ -17,7 +18,6 @@ namespace coo_yahtzee {
 	// Roll
 	constexpr int number_of_dices = 5;
 	constexpr int max_round = 3;
-
 
 	// Figures
 	constexpr int pair = 2;
@@ -34,6 +34,9 @@ namespace coo_yahtzee {
 	constexpr int bonus = 35;
 	constexpr int max_superiors = 6;
 	constexpr int max_inferiors = 7;
+
+	// Player
+	constexpr int max_advertisement = 3;
 
 	// Game
 	constexpr int total_rounds = 13;

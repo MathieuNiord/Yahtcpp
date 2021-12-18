@@ -32,7 +32,7 @@ void coo_yahtzee::game::play()
 			std::cout << "========== TOUR " << round + 1 << " ==========\n\n";
 			std::cout << "Au tour de " << players_.at(player)->c_name_ << " (Joueur " << player + 1 << ")\n\n";
 
-			players_.at(player)->play_round(dices_);
+			players_.at(player)->play_turn(dices_);
 		}
 
 	}

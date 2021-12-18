@@ -6,6 +6,7 @@
 #include "figure.h"
 #include "roll.h"
 #include "score.h"
+#include "display.h"
 
 namespace coo_yahtzee {
 
@@ -22,16 +23,28 @@ namespace coo_yahtzee {
 	protected:
 
 		const std::string c_name_;
-		std::vector<figure*> remaining_figures_;
 		score* player_score_;
-		bool eliminated_;
 
-		// --- Setter ---
-		void score_all() const;
+		// --- Methods ---
+		void play_turn(std::vector<dice*>&);
+		void play_round(roll&);
 
 	private:
 
-		void play_round(std::vector<dice*>&);
+		bool eliminated_;
+		int advertise_count_;
+
+		// --- Methods ---
+		int advertise_player(const std::string& input);	// Check the player's input and advertises him/her
+
+		// --- Setters ---
+		void score_all() const;
+		void eliminate();
+
+		// --- Getters ---
+		int player_choice(const int&);			// Display the player choices
+		void player_roll_choice(roll&);			// Display the player choices for a new roll
+		void player_figure_choice(const roll&);	// Display the player choices for a choose of a new figure
 
 		friend std::ostream& operator<<(std::ostream& out, const player&);
 		friend class game;

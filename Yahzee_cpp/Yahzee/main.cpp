@@ -31,8 +31,6 @@ int main(int argc, char* argv[]) {
 	players.push_back(new string("Hakim"));
 	players.push_back(new string("Nicolas"));
 
-	player_choices(2);
-
 	//TODO call game constructor with nb_player
 
 	return EXIT_SUCCESS;

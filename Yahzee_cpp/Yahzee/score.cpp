@@ -12,8 +12,16 @@ coo_yahtzee::score::score() {
 	remaining_count_ = inferiors.size() + superiors.size();
 }
 
-coo_yahtzee::score::~score()
-{
+coo_yahtzee::score::~score() {
+
+	for (const figure* sup : superiors)
+		delete sup;
+
+	for (const figure* inf : inferiors)
+		delete inf;
+
+	superiors.clear();
+	inferiors.clear();
 }
 
 void coo_yahtzee::score::init_inferiors() {
@@ -43,27 +51,6 @@ void coo_yahtzee::score::init_superiors() {
 
 }
 
-void coo_yahtzee::score::scored_figure_at(const int& position, const std::vector<dice*>& game) {
-
-	if (position <= remaining_count_)
-		set_score(position, game);
-
-	else {
-
-		int new_choice = 0;
-
-		std::cout << "\nOn va dire que ce n'est qu'une simple erreur de frappe...\n";
-
-		display_possibilities(game);
-
-		std::cout << "Quelle combinaison souhaitez-vous inscrire dans votre score ?\n\n";
-		std::cin >> new_choice;
-
-		scored_figure_at(new_choice, game);
-	}
-
-}
-
 void coo_yahtzee::score::compute_score() {
 
 	score_ = 0;
@@ -88,7 +75,7 @@ void coo_yahtzee::score::add_sup(figure* sup) {
 	superiors.push_back(sup);
 }
 
-void coo_yahtzee::score::set_score(const int& position, const std::vector<dice*>& game) {
+void coo_yahtzee::score::set_score(const int& position, const std::vector<dice*>& dices) {
 
 	int count = 0;
 
@@ -98,7 +85,7 @@ void coo_yahtzee::score::set_score(const int& position, const std::vector<dice*>
 			count++;
 
 		if (count == position)
-			sup->set_score(game);
+			sup->set_score(dices);
 	}
 
 	for (figure* inf : inferiors) {
@@ -107,7 +94,7 @@ void coo_yahtzee::score::set_score(const int& position, const std::vector<dice*>
 			count++;
 
 		if (count == position)
-			inf->set_score(game);
+			inf->set_score(dices);
 	}
 
 	remaining_count_--;
@@ -115,6 +102,9 @@ void coo_yahtzee::score::set_score(const int& position, const std::vector<dice*>
 }
 
 void coo_yahtzee::score::score_all() {
+
+	// This method will eliminate all the remaining figures
+	// and compute the final score
 
 	for (figure* sup : superiors)
 		sup->elimine();
@@ -157,7 +147,7 @@ void coo_yahtzee::score::display_score(std::ostream& out) const {
 	out << "\t --------------------------------------------\n\n";
 }
 
-void coo_yahtzee::score::display_possibilities(const std::vector<dice*>& game) const {
+void coo_yahtzee::score::display_possibilities(const std::vector<dice*>& dices) const {
 
 	int count = 1;
 
@@ -174,7 +164,7 @@ void coo_yahtzee::score::display_possibilities(const std::vector<dice*>& game) c
 		if (!sup->scored_) {
 
 			const std::string name = sup->c_name_;
-			const int preview = sup->get_score_preview(game);
+			const int preview = sup->get_score_preview(dices);
 			const auto name_len = static_cast<int>(name.size());
 			const auto score_len = static_cast<int>(std::to_string(preview).size());
 			const auto count_len = static_cast<int>(std::to_string(count).size());
@@ -182,7 +172,7 @@ void coo_yahtzee::score::display_possibilities(const std::vector<dice*>& game) c
 			std::cout
 				<< "| "
 				<< count << ". " << name << std::setw(18 - name_len - count_len)
-				<< " (" << sup->get_score_preview(game) << ")"
+				<< " (" << sup->get_score_preview(dices) << ")"
 				<< std::setw(14 - score_len) << "|"
 				<< std::endl;
 
@@ -203,7 +193,7 @@ void coo_yahtzee::score::display_possibilities(const std::vector<dice*>& game) c
 		if (!inf->scored_) {
 
 			const std::string name = inf->c_name_;
-			const int preview = inf->get_score_preview(game);
+			const int preview = inf->get_score_preview(dices);
 			const auto name_len = static_cast<int>(name.size());
 			const auto score_len = static_cast<int>(std::to_string(preview).size());
 			const auto count_len = static_cast<int>(std::to_string(count).size());
@@ -211,7 +201,7 @@ void coo_yahtzee::score::display_possibilities(const std::vector<dice*>& game) c
 			std::cout
 				<< "| "
 				<< count << ". " << name << std::setw(18 - name_len - count_len)
-				<< " (" << inf->get_score_preview(game) << ")"
+				<< " (" << inf->get_score_preview(dices) << ")"
 				<< std::setw(14 - score_len) << "|"
 				<< std::endl;
 

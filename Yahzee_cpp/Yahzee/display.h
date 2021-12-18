@@ -41,7 +41,8 @@ namespace coo_yahtzee {
 		return EXIT_SUCCESS;
 	}
 
-	static int player_choices(int count) {
+	// Display first choices for the player after a launch
+	/*static int player_choices(int count) {
 
 		int choice;
 
@@ -65,9 +66,10 @@ namespace coo_yahtzee {
 		}
 
 		return choice;
-	}
+	}*/
 
-	static int player_roll() {
+	// Display the roll choices for the player
+	/*static int player_roll() {
 
 		int choice;
 
@@ -88,6 +90,6 @@ namespace coo_yahtzee {
 		}
 
 		return choice;
-	}
+	}*/
 
 }
