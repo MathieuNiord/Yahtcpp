@@ -6,7 +6,7 @@
 #include <iostream>
 #include <vector>
 
-#include "score.h"
+#include "../Yahzee/score.h"
 #include "../Yahzee/figure.h"
 #include "../Yahzee/fig_superior.h"
 #include "../Yahzee/many_of_kind.h"

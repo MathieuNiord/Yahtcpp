@@ -1,3 +1,5 @@
+/* Authors : Frejoux G. & Niord M. */
+
 #pragma once
 
 #include "resources.h"

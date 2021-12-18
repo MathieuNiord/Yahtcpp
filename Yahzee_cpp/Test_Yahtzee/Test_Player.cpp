@@ -12,8 +12,8 @@
 #include "../Yahzee/full_house.h"
 #include "../Yahzee/straight.h"
 #include "../Yahzee/yahtzee.h"
-#include "score.h"
-#include "player.h"
+#include "../Yahzee/score.h"
+#include "../Yahzee/player.h"
 
 //namespace coo_yahtzee {
 //	class figure;

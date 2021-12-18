@@ -1,3 +1,5 @@
+/* Authors : Frejoux G. & Niord M. */
+
 #include "figure.h"
 
 coo_yahtzee::figure::figure(const std::string& name)

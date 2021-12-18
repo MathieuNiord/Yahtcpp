@@ -1,3 +1,5 @@
+/* Authors : Frejoux G. & Niord M. */
+
 #include "player.h"
 
 coo_yahtzee::player::player(const std::string& name)

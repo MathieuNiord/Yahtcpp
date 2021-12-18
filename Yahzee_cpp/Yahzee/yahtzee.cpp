@@ -1,3 +1,5 @@
+/* Authors : Frejoux G. & Niord M. */
+
 #include "yahtzee.h"
 
 coo_yahtzee::yahtzee::yahtzee()

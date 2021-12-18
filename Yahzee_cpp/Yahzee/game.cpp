@@ -1,3 +1,5 @@
+/* Authors : Frejoux G. & Niord M. */
+
 #include "game.h"
 
 coo_yahtzee::game::game(const int& nb_players)
