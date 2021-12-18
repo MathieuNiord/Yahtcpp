@@ -75,7 +75,7 @@ void coo_yahtzee::score::add_sup(figure* sup) {
 	superiors.push_back(sup);
 }
 
-void coo_yahtzee::score::set_score(const int& position, const std::vector<dice*>& dices) {
+void coo_yahtzee::score::set_score(int position, const std::vector<dice*>& dices) {
 
 	int count = 0;
 
@@ -115,6 +115,28 @@ void coo_yahtzee::score::score_all() {
 	compute_score();
 }
 
+void coo_yahtzee::score::display_figure_possibility(int& count, const figure* fig, const std::vector<dice*>& dices) const {
+
+	if (!fig->scored_) {
+
+		count++;
+
+		const std::string name = fig->c_name_;
+		const int preview = fig->get_score_preview(dices);
+		const auto name_len = static_cast<int>(name.size());
+		const auto score_len = static_cast<int>(std::to_string(preview).size());
+		const auto count_len = static_cast<int>(std::to_string(count).size());
+
+		std::cout
+			<< "| "
+			<< count << ". " << name << std::setw(18 - name_len - count_len)
+			<< " (" << preview << ")"
+			<< std::setw(14 - score_len) << "|"
+			<< std::endl;
+
+	}
+}
+
 void coo_yahtzee::score::display_score(std::ostream& out) const {
 
 	out << "\t --------------------------------------------\n"
@@ -149,36 +171,18 @@ void coo_yahtzee::score::display_score(std::ostream& out) const {
 
 void coo_yahtzee::score::display_possibilities(const std::vector<dice*>& dices) const {
 
-	int count = 1;
+	int count = 0;
 
 	std::cout
-		<< " =========== POSSIBILITES ==========\n"
+		<< "\n =========== POSSIBILITES ==========\n"
 		<< "|                                   |\n";
 
 	std::cout
 		<< "| Partie superieure                 |\n"
 		<< "|                                   |\n";
 
-	for (const figure* sup : superiors) {
-
-		if (!sup->scored_) {
-
-			const std::string name = sup->c_name_;
-			const int preview = sup->get_score_preview(dices);
-			const auto name_len = static_cast<int>(name.size());
-			const auto score_len = static_cast<int>(std::to_string(preview).size());
-			const auto count_len = static_cast<int>(std::to_string(count).size());
-
-			std::cout
-				<< "| "
-				<< count << ". " << name << std::setw(18 - name_len - count_len)
-				<< " (" << sup->get_score_preview(dices) << ")"
-				<< std::setw(14 - score_len) << "|"
-				<< std::endl;
-
-			count++;
-		}
-	}
+	for (const figure* sup : superiors)
+		display_figure_possibility(count, sup, dices);
 
 	std::cout
 		<< "|                                   |\n"
@@ -188,26 +192,8 @@ void coo_yahtzee::score::display_possibilities(const std::vector<dice*>& dices) 
 		<< "| Partie inferieure                 |\n"
 		<< "|                                   |\n";
 
-	for (const figure* inf : inferiors) {
-
-		if (!inf->scored_) {
-
-			const std::string name = inf->c_name_;
-			const int preview = inf->get_score_preview(dices);
-			const auto name_len = static_cast<int>(name.size());
-			const auto score_len = static_cast<int>(std::to_string(preview).size());
-			const auto count_len = static_cast<int>(std::to_string(count).size());
-
-			std::cout
-				<< "| "
-				<< count << ". " << name << std::setw(18 - name_len - count_len)
-				<< " (" << inf->get_score_preview(dices) << ")"
-				<< std::setw(14 - score_len) << "|"
-				<< std::endl;
-
-			count++;
-		}
-	}
+	for (const figure* inf : inferiors)
+		display_figure_possibility(count, inf, dices);
 
 	std::cout
 		<< "|                                   |\n"

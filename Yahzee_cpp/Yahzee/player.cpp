@@ -1,9 +1,7 @@
 #include "player.h"
 
-#include <utility>
-
-coo_yahtzee::player::player(std::string  name)
-	: c_name_(std::move(name)) {
+coo_yahtzee::player::player(const std::string& name)
+	: c_name_(name) {
 	player_score_ = new score();
 	eliminated_ = false;
 	advertise_count_ = 0;
@@ -74,7 +72,7 @@ int coo_yahtzee::player::player_choice(const int& count) {
 		<< " ===================================\n\n"
 		<< "Je choisis  : ";
 
-	std::cin >> input;
+	std::getline(std::cin, input);
 
 	// First the program checks if the input is a number
 	const int choice = advertise_player(input);
@@ -105,7 +103,7 @@ void coo_yahtzee::player::player_roll_choice(roll& p_roll) {
 		<< " ===================================\n\n"
 		<< "Je choisis : ";
 
-	std::cin >> input;
+	std::getline(std::cin, input);
 
 	const int choice = advertise_player(input);
 
@@ -128,7 +126,7 @@ void coo_yahtzee::player::player_roll_choice(roll& p_roll) {
 		case 2:
 			std::cout << p_roll << "\nQuel(s) de(s) souhaitez vous relancer ? (EXEMPLE : 1 5 4)\n\n";
 			std::cout << "Le(s) de(s) que je souhaite relancer ";
-			std::cin >> selected_dices;
+			std::getline(std::cin, selected_dices);
 			p_roll.roll_dice(translate_to_vector(selected_dices));
 			break;
 
@@ -147,7 +145,7 @@ void coo_yahtzee::player::player_figure_choice(const roll& p_roll) {
 	player_score_->display_possibilities(p_roll.dices_);
 
 	std::cout << "Quelle combinaison souhaitez-vous inscrire dans votre score ?\n\nLa combinaison ";
-	std::cin >> input;
+	std::getline(std::cin, input);
 
 	// First the program checks if the input is a number
 	const int selected_figure = advertise_player(input);
@@ -156,7 +154,7 @@ void coo_yahtzee::player::player_figure_choice(const roll& p_roll) {
 	if (selected_figure == -1)
 		return player_figure_choice(p_roll);
 
-	// If the input is equel to 0 => eliminate the player
+	// If the input is equal to 0 => eliminate the player
 	if (selected_figure == 0)
 		eliminate();
 

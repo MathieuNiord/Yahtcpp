@@ -13,11 +13,15 @@ using namespace coo_yahtzee;
 
 int main(int argc, char* argv[]) {
 
+	srand((unsigned)time(0));
+
 	/*int nb_player;
+	 *std::string input;
 
 	std::cout << "==Yahtzee==" << std::endl;
 	std::cout << "Combien de joueurs : ";
-	std::cin >> nb_player;
+	std::getline(std::cin, input);
+
 
 	if (nb_player <= 0)
 		return speedrun();*/
@@ -41,12 +45,15 @@ int main(int argc, char* argv[]) {
 	player* math = new player("Mathieu");
 
 
-	for (int i = 0; i < 3; i++)
+	for (int i = 0; i < 14; i++) {
+		std::cout << "TOUR " << i + 1 << "\n\n";
 		math->play_turn(dices);
+	}
+
+	std::cout << *(math->player_score_);
 
 	//TODO call game constructor with nb_player
-    game g(1);
-    g.play();
+
 	return EXIT_SUCCESS;
 
 }

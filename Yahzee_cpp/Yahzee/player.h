@@ -18,6 +18,7 @@ namespace coo_yahtzee {
 		~player();
 
 		void play_turn(std::vector<dice*>&);
+		score* player_score_;
 
 		// --- Getter ---
 		int get_score() const;
@@ -25,7 +26,7 @@ namespace coo_yahtzee {
 	protected:
 
 		const std::string c_name_;
-		score* player_score_;
+		
 
 		// --- Methods ---
 		

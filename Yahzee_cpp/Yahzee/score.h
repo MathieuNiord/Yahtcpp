@@ -35,10 +35,11 @@ namespace coo_yahtzee {
 		void compute_score(); // Compute the current score
 		void add_inf(figure*); // Add a figure to the inferior part
 		void add_sup(figure*); // Add a figure to the superior part
-		void set_score(const int& position, const std::vector<dice*>& dices); // Scored a figure at a given position
+		void set_score(int position, const std::vector<dice*>& dices); // Scored a figure at a given position
 		void score_all(); // Set the score of all remaining figures
 
 		// --- Display ---
+		void display_figure_possibility(int& count, const figure* fig, const std::vector<dice*>& dices) const;
 		void display_score(std::ostream& out) const;
 		void display_possibilities(const std::vector<dice*>& dices) const;
 

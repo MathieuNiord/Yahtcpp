@@ -32,7 +32,7 @@ namespace coo_yahtzee {
 		std::string player_name;
 
 		std::cout << "\n\nQuel est votre nom ?\n\nMon nom est ";
-		std::cin >> player_name;
+		std::getline(std::cin, player_name);
 
 		std::cout << "\n\n\tEXCELLENT TRAVAIL " << player_name << " !\n\n\tVous venez de speedrun un jeu qui a pris plusieurs heures a etre developpe !\n\n";
 		std::cout << "\tAvec l'ensemble de nos remerciements,\n\n\tMessieurs Frejoux & Niord.\n\n";
@@ -40,56 +40,5 @@ namespace coo_yahtzee {
 
 		return EXIT_SUCCESS;
 	}
-
-	// Display first choices for the player after a launch
-	/*static int player_choices(int count) {
-
-		int choice;
-
-		std::cout
-			<< " ============= CHOIX ===============\n"
-			<< "|                                   |\n"
-			<< "|    Que souhaitez - vous faire ?   |\n"
-			<< "|                                   |\n"
-			<< "| 1. Relancer (" << count << " coups restants)    |\n"
-			<< "| 2. Inscrire votre score           |\n"
-			<< "| 3. jui foutu j'rage quit          |\n"
-			<< "|                                   |\n"
-			<< " ===================================\n\n"
-			<< "Je choisis ";
-
-		std::cin >> choice;
-
-		if (choice < 1 || choice > 3) {
-			std::cout << get_error();
-			return player_choices(count);
-		}
-
-		return choice;
-	}*/
-
-	// Display the roll choices for the player
-	/*static int player_roll() {
-
-		int choice;
-
-		std::cout
-			<< " ============= RELANCE =============\n"
-			<< "|                                   |\n"
-			<< "| 1. Relancer tous les des          |\n"
-			<< "| 2. Choisir mes des                |\n"
-			<< "|                                   |\n"
-			<< " ===================================\n\n"
-			<< "Je choisis ";
-
-		std::cin >> choice;
-
-		if (choice < 1 || choice > 2) {
-			std::cout << get_error();
-			return player_roll();
-		}
-
-		return choice;
-	}*/
 
 }

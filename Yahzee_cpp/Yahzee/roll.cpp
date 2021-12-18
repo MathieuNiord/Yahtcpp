@@ -13,10 +13,10 @@ coo_yahtzee::roll::roll(const roll& r)
 
 coo_yahtzee::roll::~roll() {
 
-	for (const dice* d : dices_)
+	/*for (const dice* d : dices_)
 		delete d;
 
-	dices_.clear();
+	dices_.clear();*/
 }
 
 void coo_yahtzee::roll::roll_dices() {

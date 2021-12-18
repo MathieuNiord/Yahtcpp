@@ -6,7 +6,6 @@ namespace coo_yahtzee {
 
 	// Return a random value
 	static int get_random(const int& min, const int& max) {
-		srand((unsigned)time(0));
 		return rand() % max + min;
 	}
 
@@ -17,8 +16,17 @@ namespace coo_yahtzee {
 		std::stringstream stream(s);
 
 		int pos;
-		while (stream >> pos)
-			positions.push_back(pos);
+		std::string temp;
+
+		while (!stream.eof()) {
+
+			stream >> temp;
+
+			if (std::stringstream(temp) >> pos)
+				positions.push_back(pos);
+
+			temp = "";
+		}
 
 		return positions;
 	}

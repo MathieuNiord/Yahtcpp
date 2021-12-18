@@ -11,10 +11,10 @@ bool coo_yahtzee::yahtzee::check_figure(const std::vector<dice*>& game) const {
 
 	for (const dice* d : game){
 
-		if (count_values.at(d->get_value()) > 5)
+		if (count_values.at(d->get_value() - 1) == number_of_dices)
 			return true;
 
-		count_values[d->get_value()]++;
+		count_values.at(d->get_value() - 1)++;
 	}
 
 	return false;
