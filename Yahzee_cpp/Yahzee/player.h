@@ -45,7 +45,7 @@ namespace coo_yahtzee {
 
 		// --- Comparison ---
 		static bool compare_player_pointers(const player* p01, const player* p02) {
-			return (p01->get_score_result() <= p02->get_score_result());
+			return (p01->get_score_result() < p02->get_score_result());
 		}
 
 		friend std::ostream& operator<<(std::ostream& out, const player&);
