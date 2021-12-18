@@ -7,7 +7,7 @@ coo_yahtzee::game::game(const int& nb_players)
 
 	for (int i = 0; i < nb_players; i++) {
 		std::string name;
-		std::cout << "Donnez un nom au joueur " << i << ": ";
+		std::cout << "Donnez un nom au joueur " << i+1 << ": ";
 		std::cin >> name;
 		players_.push_back(new player(name));
 	}
@@ -45,4 +45,9 @@ void coo_yahtzee::game::finish() {
 
 	//TODO : finish the game
 
+}
+
+coo_yahtzee::game::~game() {
+    for (const auto &item : players_) delete item;
+    for (const auto &item : dices_) delete item;
 }

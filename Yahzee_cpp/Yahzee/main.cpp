@@ -32,7 +32,8 @@ int main(int argc, char* argv[]) {
 	players.push_back(new string("Nicolas"));
 
 	//TODO call game constructor with nb_player
-
+    game g(1);
+    g.play();
 	return EXIT_SUCCESS;
 
 }

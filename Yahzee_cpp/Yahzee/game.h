@@ -11,8 +11,9 @@ namespace coo_yahtzee {
 
 	public :
 
-		game(const int& nb_of_player);
+		explicit game(const int& nb_of_player);
 		~game();
+        void play();
 
 	private :
 
@@ -21,7 +22,6 @@ namespace coo_yahtzee {
 		std::vector<dice*> dices_;
 		int eliminated_count_;
 
-		void play();
 		void finish();
 
 

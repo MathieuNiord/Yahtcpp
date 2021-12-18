@@ -1,7 +1,9 @@
 #include "player.h"
 
-coo_yahtzee::player::player(const std::string& name)
-	: c_name_(name) {
+#include <utility>
+
+coo_yahtzee::player::player(std::string  name)
+	: c_name_(std::move(name)) {
 	player_score_ = new score();
 	eliminated_ = false;
 	advertise_count_ = 0;
@@ -32,7 +34,7 @@ int coo_yahtzee::player::advertise_player(const std::string& input) {
 		return 0;
 
 	else
-		std::cout << "\n\nMais ??? Le gag classique ça ! \"Gne jve metr des mo et pa des chifr\"...\n\n";
+		std::cout << "\n\nMais ??? Le gag classique ï¿½a ! \"Gne jve metr des mo et pa des chifr\"...\n\n";
 
 	return -1;
 }
@@ -68,7 +70,7 @@ int coo_yahtzee::player::player_choice(const int& count) {
 		<< "| " << (++menu_count) << ". jui foutu j'rage quit          |\n"
 		<< "|                                   |\n"
 		<< " ===================================\n\n"
-		<< "Je choisis ";
+		<< "Je choisis  : ";
 
 	std::cin >> input;
 
@@ -99,7 +101,7 @@ void coo_yahtzee::player::player_roll_choice(roll& p_roll) {
 		<< "| 2. Choisir mes des                |\n"
 		<< "|                                   |\n"
 		<< " ===================================\n\n"
-		<< "Je choisis ";
+		<< "Je choisis : ";
 
 	std::cin >> input;
 
