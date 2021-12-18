@@ -30,23 +30,21 @@ namespace coo_yahtzee {
 	template <const int Number>
 	bool straight<Number>::check_figure(const std::vector<dice*>& game) const {
 
-		std::vector<dice*> game_sorted(game);
-		std::sort(game_sorted.begin(), game_sorted.end());
-		int count = -1;
-		int last_value = game_sorted.at(0)->get_value();
+        //since dices are sorted by value we can iterate dices and count if there is v next values
 
-		for (const dice* d : game_sorted) {
+        int cpt = 1;
+        int size = game.size();
 
-			if (d->get_value() == last_value)
-				count++;
+        for(int i = 0 ; i < size-1 ; i++){
 
-			if ((count > max_dice_value - Number) || (d->get_value() > last_value + 1))
-				return false;
+            if(game.at(i)->get_value() + 1 == game.at(i+1)->get_value()){
+                cpt++;
+                if (cpt >= Number) return true;
+            }
+            else cpt = 1;
 
-			last_value = d->get_value();
-		}
-
-		return true;
+        }
+        return false;
 
 	}
 

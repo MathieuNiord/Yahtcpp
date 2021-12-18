@@ -19,10 +19,6 @@ namespace coo_yahtzee {
 		// Getter
 		int get_value() const;
 
-		/*static void sort_dices(std::vector<dice*>& dices) {
-			std::sort(dices.begin(), dices.end(), compare_dice_pointers);
-		}*/
-
 	private:
 
 		int value_;

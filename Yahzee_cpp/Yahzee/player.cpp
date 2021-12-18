@@ -128,7 +128,8 @@ void coo_yahtzee::player::player_roll_choice(roll& p_roll) {
 			std::cout << "Le(s) de(s) que je souhaite relancer ";
 			std::getline(std::cin, selected_dices);
 			p_roll.roll_dice(translate_to_vector(selected_dices));
-			break;
+            std::cout << *player_score_;
+            break;
 
 		default:
 			get_error();
@@ -172,7 +173,6 @@ void coo_yahtzee::player::play_turn(std::vector<dice*>& dices) {
 	roll p_roll(dices);
 	p_roll.roll_dices();
 	std::cout << *player_score_;
-	// TODO : attente
 	play_round(p_roll);
 }
 
