@@ -43,4 +43,42 @@ namespace coo_yahtzee {
 		return true;
 	}
 
+    static int get_input_int(){
+        try{
+            std::string line;
+            std::getline(std::cin, line);
+            return std::stoi(line);
+        }
+        catch (std::exception exception) {
+            std::cout << "Nous souhaitons un entier ici !\nValeur : ";
+            return get_input_int();
+        }
+    }
+
+
+    static std::string get_input_string(){
+        std::string line;
+        return line;
+    }
+
+    static std::vector<int> get_input_int_vector(){
+        std::string s = get_input_string();
+        std::vector<int> ans;
+        std::stringstream stream(s);
+
+        int pos;
+        std::string temp;
+
+        while (!stream.eof()) {
+
+            stream >> temp;
+
+            if (std::stringstream(temp) >> pos)
+                ans.push_back(pos);
+
+            temp = "";
+        }
+
+        return ans;
+    }
 }
