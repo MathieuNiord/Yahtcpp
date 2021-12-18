@@ -1,6 +1,7 @@
 #pragma once
 
 #include "resources.h"
+#include "utils.h"
 
 namespace coo_yahtzee {
 
@@ -14,8 +15,7 @@ namespace coo_yahtzee {
 
 	inline std::string get_error() {
 
-		srand((unsigned) time(0));
-		const int which_one = rand() % 1000;
+		const int which_one = get_random(0, 1000);
 
 		switch (which_one % 5) {
 			case 1: return "\n\n" + error_01 + "\n\n";

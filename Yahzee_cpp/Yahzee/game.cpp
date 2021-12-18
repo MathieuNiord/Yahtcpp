@@ -15,6 +15,8 @@ coo_yahtzee::game::game(const int& nb_players)
 	for (int i = 0; i < number_of_dices; i++) {
 		dices_.push_back(new dice);
 	}
+
+	eliminated_count_ = 0;
 }
 
 void coo_yahtzee::game::play()

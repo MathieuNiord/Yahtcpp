@@ -14,7 +14,7 @@ bool coo_yahtzee::full_house::check_figure(const std::vector<dice*>& dices) cons
 	std::vector<int> count_values = { 0, 0, 0, 0, 0, 0 };
 	
 	for (const dice* d : dices)
-		count_values[d->get_value()]++;
+		count_values.at(d->get_value())++;
 		
 	for (int i = 0; i < max_dice_value; i++) {
 		
@@ -23,8 +23,8 @@ bool coo_yahtzee::full_house::check_figure(const std::vector<dice*>& dices) cons
 			max = count_values[i];
 		}
 		
-		else if (second_max < count_values[i])
-			second_max = count_values[i];
+		else if (second_max < count_values.at(i))
+			second_max = count_values.at(i);
 	}
 	
 	return max >= number_of_dices || (max >= three_of_kind && second_max >= pair);

@@ -22,14 +22,27 @@ int main(int argc, char* argv[]) {
 	if (nb_player <= 0)
 		return speedrun();*/
 
-	int count = 1;
+	/*int count = 1;
 
 	std::vector<std::string*> players;
 
 	players.push_back(new string("Mathieu"));
 	players.push_back(new string("Gaetan"));
 	players.push_back(new string("Hakim"));
-	players.push_back(new string("Nicolas"));
+	players.push_back(new string("Nicolas"));*/
+
+	std::vector<dice*> dices;
+	dices.reserve(5);
+
+	for (int i = 0; i < 5; i++) {
+		dices.push_back(new dice);
+	}
+
+	player* math = new player("Mathieu");
+
+
+	for (int i = 0; i < 3; i++)
+		math->play_turn(dices);
 
 	//TODO call game constructor with nb_player
 

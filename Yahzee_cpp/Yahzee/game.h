@@ -21,8 +21,14 @@ namespace coo_yahtzee {
 		std::vector<dice*> dices_;
 		int eliminated_count_;
 
+		// --- Methods ---
+
 		void play();
 		void finish();
+
+		static void sort_players(std::vector<player*>& players) {
+			std::sort(players.begin(), players.end(), player::compare_player_pointers);
+		}
 
 
 	};

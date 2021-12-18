@@ -17,6 +17,8 @@ namespace coo_yahtzee {
 		player(const std::string& name);
 		~player();
 
+		void play_turn(std::vector<dice*>&);
+
 		// --- Getter ---
 		int get_score() const;
 
@@ -26,7 +28,7 @@ namespace coo_yahtzee {
 		score* player_score_;
 
 		// --- Methods ---
-		void play_turn(std::vector<dice*>&);
+		
 		void play_round(roll&);
 
 	private:
@@ -36,6 +38,11 @@ namespace coo_yahtzee {
 
 		// --- Methods ---
 		int advertise_player(const std::string& input);	// Check the player's input and advertises him/her
+
+		// --- Comparison ---
+		static bool compare_player_pointers(const player* p01, const player* p02) {
+			return (p01->get_score() <= p02->get_score());
+		}
 
 		// --- Setters ---
 		void score_all() const;

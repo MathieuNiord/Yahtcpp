@@ -21,6 +21,11 @@ namespace coo_yahtzee {
 		std::vector<dice*> dices_;
 		int round_count_;
 
+		// Sort dices
+		void sort_dices() {
+			std::sort(dices_.begin(), dices_.end(), dice::compare_dice_pointers);
+		}
+
 		// Roll all dices
 		void roll_dices();
 

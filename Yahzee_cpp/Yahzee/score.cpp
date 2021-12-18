@@ -29,7 +29,7 @@ void coo_yahtzee::score::init_inferiors() {
 	inferiors.reserve(max_inferiors);
 
 	add_inf(new many_of_kind<three_of_kind>("Brelan"));
-	add_inf(new many_of_kind<four_of_kind>("Carré"));
+	add_inf(new many_of_kind<four_of_kind>("Carre"));
 	add_inf(new full_house());
 	add_inf(new straight<4>("Petite Suite"));
 	add_inf(new straight<5>("Grande Suite"));
@@ -68,7 +68,7 @@ void coo_yahtzee::score::compute_score() {
 }
 
 void coo_yahtzee::score::add_inf(figure* inf) {
-	superiors.push_back(inf);
+	inferiors.push_back(inf);
 }
 
 void coo_yahtzee::score::add_sup(figure* sup) {

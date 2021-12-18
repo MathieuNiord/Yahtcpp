@@ -61,10 +61,12 @@ int coo_yahtzee::player::player_choice(const int& count) {
 	if (count < max_round)
 		std::cout
 			<< "| " << (++menu_count) << ". Relancer ("
-			<< (max_round - count) << " coup(s) restant(s))    |\n";
+			<< (max_round - count) << " coup(s) restant(s))|\n";
 
 	std::cout
-		<< "| " << (++menu_count) << ". Inscrire votre score           |\n"
+		<< "| " << (++menu_count) << ". Inscrire votre score           |\n";
+
+	std::cout
 		<< "| " << (++menu_count) << ". jui foutu j'rage quit          |\n"
 		<< "|                                   |\n"
 		<< " ===================================\n\n"
@@ -111,27 +113,28 @@ void coo_yahtzee::player::player_roll_choice(roll& p_roll) {
 	else if (choice == -1)
 		player_roll_choice(p_roll);
 
-	else
+	else {
+
+		std::string selected_dices;
+
 		switch (choice) {
 
-			case 1:
-				p_roll.roll_dices();
-				break;
+		case 1:
+			p_roll.roll_dices();
+			break;
 
-			case 2:
-				std::cout << p_roll << "\nQuel(s) de(s) souhaitez vous relancer ? (EXEMPLE : 1 5 4)\n\n";
-				std::cout << "Le(s) de(s) que je souhaite relancer ";
-				{
-						std::string selected_dices;
-						std::cin >> selected_dices;
-						p_roll.roll_dice(translate_to_vector(selected_dices));
-				}
-				break;
+		case 2:
+			std::cout << p_roll << "\nQuel(s) de(s) souhaitez vous relancer ? (EXEMPLE : 1 5 4)\n\n";
+			std::cout << "Le(s) de(s) que je souhaite relancer ";
+			std::cin >> selected_dices;
+			p_roll.roll_dice(translate_to_vector(selected_dices));
+			break;
 
-			default:
-				get_error();
-				player_roll_choice(p_roll);
+		default:
+			get_error();
+			player_roll_choice(p_roll);
 		}
+	}
 
 }
 
@@ -168,6 +171,8 @@ void coo_yahtzee::player::player_figure_choice(const roll& p_roll) {
 void coo_yahtzee::player::play_turn(std::vector<dice*>& dices) {
 	roll p_roll(dices);
 	p_roll.roll_dices();
+	std::cout << *player_score_;
+	// TODO : attente
 	play_round(p_roll);
 }
 
@@ -176,7 +181,6 @@ void coo_yahtzee::player::play_round(roll& p_roll) {
 	int choice = 0;
 
 	std::cout << p_roll;
-	std::cout << player_score_;
 
 	choice = player_choice(p_roll.round_count_);
 

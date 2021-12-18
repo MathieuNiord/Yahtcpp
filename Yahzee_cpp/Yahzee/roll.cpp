@@ -24,7 +24,7 @@ void coo_yahtzee::roll::roll_dices() {
 	for (dice* d : dices_)
 		d->roll();
 
-	sort_dices(dices_);
+	sort_dices();
 
 	round_count_++;
 }
@@ -35,7 +35,7 @@ void coo_yahtzee::roll::roll_dice(const	std::vector<int>& positions) {
 		if (pos >= 1 && pos <= number_of_dices)
 			dices_.at(pos - 1)->roll();
 
-	sort_dices(dices_);
+	sort_dices();
 
 	round_count_++;
 }
