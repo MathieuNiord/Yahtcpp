@@ -10,7 +10,7 @@ coo_yahtzee::game::game(const int& nb_players)
 	for (int i = 0; i < nb_players; i++) {
 		std::string name;
 		std::cout << "Donnez un nom au joueur " << i+1 << ": ";
-		std::cin >> name;
+		std::getline(std::cin, name);
 		players_.push_back(new player(name));
 	}
 
@@ -27,11 +27,6 @@ void coo_yahtzee::game::play()
 
 		for (int player = 0; player < number_of_players_; player++) {
 
-			//TODO player turn
-
-			if (eliminated_count_ == number_of_players_ ) {
-				return finish();
-			}
 
 			std::cout << "========== TOUR " << round + 1 << " ==========\n\n";
 			std::cout << "Au tour de " << players_.at(player)->c_name_ << " (Joueur " << player + 1 << ")\n\n";
@@ -40,14 +35,34 @@ void coo_yahtzee::game::play()
 		}
 
 	}
+    finish();
 }
 
 void coo_yahtzee::game::finish() {
+    int score = -1;
+    player* winner;
+    for(int i = 0; i < number_of_players_; i++){
 
-	for (player* player : players_)
-		player->score_all();
+        players_.at(i)->score_all();
+
+        if(players_.at(i)->get_score() > score){
+            score = players_.at(i)->get_score();
+            winner = players_.at(i);
+        }
+
+    }
 
 	//TODO : finish the game
+
+    std::cout << " =========== PARTIE TERMINEE ===========\n"
+                 "|                                       |\n";
+    for (const auto &item : players_){
+        std::cout << "| " << item->c_name_ << " : " << item->get_score() <<"     |\n";
+    }
+    std::cout << "|                                       |\n"
+                 " =======================================\n";
+
+    std::cout << "Gagnant : " << winner->c_name_;
 
 }
 
