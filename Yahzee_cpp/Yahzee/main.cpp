@@ -45,7 +45,8 @@ int main(int argc, char* argv[]) {
 		math->play_turn(dices);
 
 	//TODO call game constructor with nb_player
-
+    game g(1);
+    g.play();
 	return EXIT_SUCCESS;
 
 }
