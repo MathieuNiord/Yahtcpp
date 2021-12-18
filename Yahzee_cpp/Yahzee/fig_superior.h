@@ -18,7 +18,7 @@ namespace coo_yahtzee {
 		int get_score(const std::vector<dice*>&) const override;
 
 		friend class score;
-
+		friend class test_figure;
 	};
 
 	template <const int Value>

@@ -19,6 +19,7 @@ namespace coo_yahtzee {
 	private:
 
 		int get_score(const std::vector<dice*>&) const override;
+		friend class test_figure;
 
 	};
 
@@ -35,7 +36,6 @@ namespace coo_yahtzee {
         int size = game.size();
 
         for(int i = 0 ; i < size-1 ; i++){
-
             if(game.at(i)->get_value() + 1 == game.at(i+1)->get_value()){
                 cpt++;
                 if (cpt >= Number) return (Number-1) * 10;

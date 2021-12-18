@@ -63,7 +63,7 @@ namespace coo_yahtzee {
 			<< "\t\t\thhhhhhhhhhhhhhhhhhhhhhhhyyyyyyyyyyyyyyyyyyyyyyyyyysso+//::::::::--------------------------------::::::::://////////+++++++oooooossssssyyyyyyyyyyyyyyyy\n\n\n";
 
 		std::cout << "Appuyez sur Entree pour continuer...\n";
-		std::getchar();
+		(std::getchar());
 		std::cout << "\033[2J\033[1;1H"; // For cleaning
 	}
 

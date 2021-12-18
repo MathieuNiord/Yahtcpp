@@ -74,7 +74,7 @@ namespace coo_yahtzee {
             return std::stoi(line);
         }
 
-        catch (std::exception& exception) {
+        catch (std::exception exception) {
 			std::cout << get_error();
 			std::cout << "Quelle est votre reponse ?\n\nReponse : ";
             return get_input_int();

@@ -31,6 +31,7 @@ namespace coo_yahtzee {
 
 		friend class roll;
 		friend class figure;
+		friend class test_figure;
 
 	};
 

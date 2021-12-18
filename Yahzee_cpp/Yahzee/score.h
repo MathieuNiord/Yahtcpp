@@ -45,6 +45,8 @@ namespace coo_yahtzee {
 
 		friend std::ostream& operator<<(std::ostream& out, const score&);
 		friend class player;
+		friend class ai_player;
+		friend class test_score;
 	};
 
 	std::ostream& operator<<(std::ostream& out, const score&);

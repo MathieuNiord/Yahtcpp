@@ -3,21 +3,9 @@
 #include "pch.h"
 #include "CppUnitTest.h"
 
-#include <iostream>
-#include <vector>
-
-#include "../Yahzee/dice.h"
-#include "../Yahzee/roll.h"
-
-//namespace coo_yahtzee {
-//	class dice;
-//	class roll;
-//}
-
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
-using namespace coo_yahtzee;
 
-namespace test_yahtzee {
+namespace coo_yahtzee {
 
 	TEST_CLASS(test_roll) {
 

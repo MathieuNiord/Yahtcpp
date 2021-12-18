@@ -23,7 +23,7 @@ namespace coo_yahtzee {
 		score* player_score_;
 
 		// --- Methods ---
-		void play_round(roll&);
+		virtual void play_round(roll&);
 		void play_turn(std::vector<dice*>&);
 
 	private:
@@ -50,6 +50,7 @@ namespace coo_yahtzee {
 
 		friend std::ostream& operator<<(std::ostream& out, const player&);
 		friend class game;
+		friend class test_player;
 
 	};
 

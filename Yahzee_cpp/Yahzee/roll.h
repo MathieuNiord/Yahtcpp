@@ -37,7 +37,9 @@ namespace coo_yahtzee {
 
 		friend std::ostream& operator<<(std::ostream& out, const roll&);
 		friend class player;
-		friend class Test_Yahtzee;
+		friend class ai_player;
+
+		friend class test_roll;
 
 	};
 
