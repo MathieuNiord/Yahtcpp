@@ -8,9 +8,10 @@ using namespace std;
 using namespace coo_yahtzee;
 
 int main(int argc, char* argv[]) {
+
 	srand((unsigned)time(0));
 
-    cout << "How many player : ";
+    cout << "How many players : ";
     game g(get_input_int());
     g.play();
 

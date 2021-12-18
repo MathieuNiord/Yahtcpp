@@ -23,8 +23,9 @@ void coo_yahtzee::figure::set_score(const std::vector<dice*>& game) {
 	score_ = get_score(game);
 }
 
-void coo_yahtzee::figure::elimine() {
+void coo_yahtzee::figure::eliminate() {
 	scored_ = true;
+	score_ = 0;
 }
 
 std::ostream& coo_yahtzee::figure::to_string(std::ostream& out) const {

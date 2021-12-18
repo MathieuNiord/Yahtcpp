@@ -13,8 +13,6 @@ namespace coo_yahtzee {
 
 		fig_superior();
 
-	protected:
-
 	private:
 
 		int get_score(const std::vector<dice*>&) const override;

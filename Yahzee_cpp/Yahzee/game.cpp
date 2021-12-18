@@ -9,9 +9,10 @@ coo_yahtzee::game::game(const int& nb_players)
 
 	for (int i = 0; i < nb_players; i++) {
 		std::string name;
-		std::cout << "Donnez un nom au joueur " << i+1 << ": ";
+		std::cout << "Donnez un nom au joueur " << i + 1 << " : ";
 		std::getline(std::cin, name);
 		players_.push_back(new player(name));
+		std::cout << "\nJoueur " << name << " cree.\n\n";
 	}
 
 	for (int i = 0; i < number_of_dices; i++) {
@@ -21,52 +22,103 @@ coo_yahtzee::game::game(const int& nb_players)
 	eliminated_count_ = 0;
 }
 
-void coo_yahtzee::game::play()
-{
-	for (int round = 0; round < total_rounds; round++) {
+void coo_yahtzee::game::play() {
+
+	int round = 0;
+
+	// While the game isn't finished and the number of active players is upper than 1
+	while (round < total_rounds && eliminated_count_ < number_of_players_ - 1) {
 
 		for (int player = 0; player < number_of_players_; player++) {
 
+			if (!players_.at(player)->eliminated_) {
 
-			std::cout << "========== TOUR " << round + 1 << " ==========\n\n";
-			std::cout << "Au tour de " << players_.at(player)->c_name_ << " (Joueur " << player + 1 << ")\n\n";
+				std::cout << "\n\n========== TOUR " << round + 1 << " ==========\n\n";
+				std::cout << "Au tour de " << players_.at(player)->c_name_ << " (Joueur " << player + 1 << ")\n\n";
 
-			players_.at(player)->play_turn(dices_);
+				players_.at(player)->play_turn(dices_);
+
+				// If at the end of his/her turn the player is eliminated,
+				// the game increments its counter
+				if (players_.at(player)->eliminated_)
+					eliminated_count_++;
+			}
 		}
 
+		round++;
 	}
+
     finish();
 }
 
 void coo_yahtzee::game::finish() {
-    int score = -1;
-    player* winner;
-    for(int i = 0; i < number_of_players_; i++){
 
-        players_.at(i)->score_all();
+    std::string winner("Gagnant : ");
 
-        if(players_.at(i)->get_score() > score){
-            score = players_.at(i)->get_score();
-            winner = players_.at(i);
-        }
+	// The program compute the score of all the players
+	for (const player* player : players_)
+		player->score_all();
 
-    }
+	// The program sorts the list of players based on their scores
+	sort_players();
 
-	//TODO : finish the game
+	// The program finds the winner
+	// (in case in the player were eliminated, he/she can not win)
+	for (const player* player : players_) {
+		if (!player->eliminated_) {
+			winner.append(player->c_name_);
+			break;
+		}
+	}
 
-    std::cout << " =========== PARTIE TERMINEE ===========\n"
-                 "|                                       |\n";
-    for (const auto &item : players_){
-        std::cout << "| " << item->c_name_ << " : " << item->get_score() <<"     |\n";
-    }
-    std::cout << "|                                       |\n"
-                 " =======================================\n";
+	std::cout
+		<< "\n\n\t =========== PARTIE TERMINEE ===========\n"
+		<< "\t|                                       |\n";
 
-    std::cout << "Gagnant : " << winner->c_name_;
+	for (const player* player : players_)
+		display_player_score(player);
+
+	std::cout << "\t|                                       |\n";
+
+	if (eliminated_count_ != number_of_players_)
+		std::cout
+			<< "\t| " << std::left << std::setw(38) << winner << "|\n";
+
+	else
+		std::cout
+			<< "\t| " << std::left << std::setw(38) << "Aucun gagnant, que des loosers " << "|\n";
+
+	std::cout
+		<< "\t|                                       |\n"
+		<< "\t =======================================\n\n";
 
 }
 
+void coo_yahtzee::game::sort_players() {
+	std::sort(players_.begin(), players_.end(), player::compare_player_pointers);
+}
+
+void coo_yahtzee::game::display_player_score(const player* p) const {
+
+	std::string eliminate;
+
+	if (p->eliminated_)
+		eliminate = " (Eliminate)";
+
+	const std::string player = p->c_name_ + eliminate + " : " + std::to_string(p->get_score_result());
+
+	std::cout
+		<< "\t| " << std::left << std::setw(38) << player << "|\n";
+}
+
 coo_yahtzee::game::~game() {
-    for (const auto &item : players_) delete item;
-    for (const auto &item : dices_) delete item;
+
+    for (const player* player : players_)
+		delete player;
+
+    for (const dice* dice : dices_)
+		delete dice;
+
+	players_.clear();
+	dices_.clear();
 }

@@ -23,12 +23,14 @@ namespace coo_yahtzee {
 
 	private:
 
-		// --- Getters ---
-		virtual int get_score(const std::vector<dice*>&) const = 0; // Gets the score based on the current roll
+		// --- Methods ---
+
+		// Gets the score based on the current roll
+		virtual int get_score(const std::vector<dice*>&) const = 0;
 
 		// --- Setters ---
 		virtual void set_score(const std::vector<dice*>&);	// Sets scored_ at 'true' and put the computed score into the score_ attribute
-		virtual void elimine();
+		void eliminate();
 
 		// --- Display ---
 		virtual std::ostream& to_string(std::ostream& out) const;

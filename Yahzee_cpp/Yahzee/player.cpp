@@ -13,7 +13,7 @@ coo_yahtzee::player::~player() {
 	delete player_score_;
 }
 
-int coo_yahtzee::player::get_score() const {
+int coo_yahtzee::player::get_score_result() const {
 	return player_score_->score_;
 }
 

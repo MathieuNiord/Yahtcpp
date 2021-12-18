@@ -107,10 +107,10 @@ void coo_yahtzee::score::score_all() {
 	// and compute the final score
 
 	for (figure* sup : superiors)
-		sup->elimine();
+		sup->eliminate();
 
 	for (figure* inf : inferiors)
-		inf->elimine();
+		inf->eliminate();
 
 	compute_score();
 }
