@@ -25,7 +25,7 @@ coo_yahtzee::game::game(const int& nb_players, const int& mod)
 		std::cout << "Donnez un nom du robot " << i + 1 << " : ";
 		std::getline(std::cin, name);
 		players_.push_back(new ai_player(name));
-		std::cout << "\Robot " << name << " cree.\n\n";
+		std::cout << "\nRobot " << name << " cree.\n\n";
 	}
 
 	for (int i = 0; i < number_of_dices; i++) {
