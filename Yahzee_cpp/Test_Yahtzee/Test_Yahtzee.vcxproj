@@ -157,6 +157,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="pch.cpp" />
     <ClCompile Include="Test_Figure.cpp" />
     <ClCompile Include="Test_Player.cpp" />
     <ClCompile Include="Test_Roll.cpp" />

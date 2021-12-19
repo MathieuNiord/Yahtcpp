@@ -10,11 +10,13 @@ namespace coo_yahtzee {
 	TEST_CLASS(test_figure) {
 
 public:
+
 	figure* superior;
 	figure* full;
 	figure* brelan;
 	figure* little;
 	figure* yaht;
+
 	std::vector<dice*> dices;
 
 	TEST_METHOD_INITIALIZE(setup) {
