@@ -40,6 +40,18 @@ coo_yahtzee::game::game(const std::string& name, const int& nb_bots, const int& 
 	eliminated_count_ = 0;
 }
 
+coo_yahtzee::game::~game() {
+
+	for (const player* player : players_)
+		delete player;
+
+	for (const dice* dice : dices_)
+		delete dice;
+
+	players_.clear();
+	dices_.clear();
+}
+
 void coo_yahtzee::game::play() {
 
 	int round = 0;
@@ -80,7 +92,7 @@ void coo_yahtzee::game::finish() {
     std::string winner("Gagnant : ");
 
 	// The program compute the score of all the players
-	for (player* player : players_)
+	for (const player* player : players_)
 		player->score_all();
 
 	// The program sorts the list of players based on their scores
@@ -115,7 +127,6 @@ void coo_yahtzee::game::finish() {
 	std::cout
 		<< "\t|                                       |\n"
 		<< "\t =======================================\n\n";
-
 }
 
 void coo_yahtzee::game::sort_players() {
@@ -133,16 +144,4 @@ void coo_yahtzee::game::display_player_score(const player* p) const {
 
 	std::cout
 		<< "\t| " << std::left << std::setw(38) << player << "|\n";
-}
-
-coo_yahtzee::game::~game() {
-
-    for (const player* player : players_)
-		delete player;
-
-    for (const dice* dice : dices_)
-		delete dice;
-
-	players_.clear();
-	dices_.clear();
 }

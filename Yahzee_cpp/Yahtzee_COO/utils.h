@@ -75,6 +75,13 @@ namespace coo_yahtzee {
 		clear_screen();
 	}
 
+	// Wait a char and exit
+	static void wait_and_exit(const std::string& msg = "Appuyez sur Entree pour continuer...") {
+		std::cout << msg;
+		std::getchar();
+		exit(EXIT_SUCCESS);
+	}
+
 	static int get_input_int(int min = INT_MIN, int max = INT_MAX) {
 
         try {

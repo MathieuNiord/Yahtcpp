@@ -33,6 +33,7 @@ int main(int argc, char* argv[]) {
                 game game(name, nb_bots);
                 wait_and_clean_screen("\nAppuyez sur Entree pour lancer le jeu...");
                 game.play();
+                wait_and_exit("\nAppuez sur Entree pour quitter...");
             }
 
             else
@@ -52,6 +53,7 @@ int main(int argc, char* argv[]) {
                 game game(nb_players);
                 wait_and_clean_screen("\nAppuyez sur Entree pour lancer le jeu...");
                 game.play();
+                wait_and_exit("\nAppuez sur Entree pour quitter...");
             }
 
             else
