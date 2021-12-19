@@ -2,17 +2,30 @@
 
 #include "game.h"
 
-coo_yahtzee::game::game(const int& nb_players)
-	: number_of_players_(nb_players) {
+coo_yahtzee::game::game(const int& nb_players, const int& mod)
+	: number_of_players_(nb_players), mod_(mod) {
 
 	players_.reserve(nb_players);
 
-	for (int i = 0; i < nb_players; i++) {
+	int nb_human;
+	std::cout << "How many human player : ";
+
+	nb_human = get_input_int(1, nb_players);
+
+	for (int i = 0; i < nb_human; i++) {
 		std::string name;
 		std::cout << "Donnez un nom au joueur " << i + 1 << " : ";
 		std::getline(std::cin, name);
 		players_.push_back(new player(name));
 		std::cout << "\nJoueur " << name << " cree.\n\n";
+	}
+
+	for (int i = nb_human; i < nb_players; i++) {
+		std::string name;
+		std::cout << "Donnez un nom du robot " << i + 1 << " : ";
+		std::getline(std::cin, name);
+		players_.push_back(new ai_player(name));
+		std::cout << "\Robot " << name << " cree.\n\n";
 	}
 
 	for (int i = 0; i < number_of_dices; i++) {
@@ -47,7 +60,6 @@ void coo_yahtzee::game::play() {
 
 		round++;
 	}
-
     finish();
 }
 

@@ -6,6 +6,8 @@ namespace coo_yahtzee {
 
 	class ai_player : public player
 	{
+	public:
+		ai_player(const std::string& name);
 	protected:
 		void play_round(roll&) override;
 

@@ -66,7 +66,7 @@ namespace coo_yahtzee {
 		return true;
 	}
 
-    static int get_input_int() {
+    static int get_input_int(int min, int max) {
 
         try {
             std::string line;
@@ -77,7 +77,7 @@ namespace coo_yahtzee {
         catch (std::exception exception) {
 			std::cout << get_error();
 			std::cout << "Quelle est votre reponse ?\n\nReponse : ";
-            return get_input_int();
+            return get_input_int(min, max);
         }
     }
 
