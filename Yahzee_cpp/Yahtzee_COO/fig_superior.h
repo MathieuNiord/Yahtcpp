@@ -22,6 +22,8 @@ namespace coo_yahtzee {
 		friend class score;
 
 		// Tests
+		friend class Test_Figure;
+
 	};
 
 	template <const int Value>

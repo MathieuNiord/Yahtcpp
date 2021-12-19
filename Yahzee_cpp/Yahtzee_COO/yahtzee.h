@@ -24,6 +24,7 @@ namespace coo_yahtzee {
 		void set_score(const std::vector<dice*>&) override;
 
 		// Tests
+		friend class Test_Figure;
 
 	};
 

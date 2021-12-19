@@ -1,8 +1,6 @@
 #include "pch.h"
 #include "CppUnitTest.h"
 
-#include "../Yahtzee_COO/resources.h"
-#include "../Yahtzee_COO/figure.h"
 #include "../Yahtzee_COO/fig_superior.h"
 #include "../Yahtzee_COO/many_of_kind.h"
 #include "../Yahtzee_COO/full_house.h"
@@ -18,41 +16,19 @@ namespace coo_yahtzee {
 
 	TEST_CLASS(Test_Figure) {
 
-public:
+	public:
 
-	TEST_METHOD(test_figures_init) {
+		TEST_METHOD(test_figures_init) {
 
-		// Initialization
-
-
-		// Assertions
+			// Initialization
 
 
-		// Destruction
-
-	}
-
-	TEST_METHOD(test_roll_dices) {
-
-		// Initialization
-
-		// Assertions
+			// Assertions
 
 
-		// Destruction
+			// Destruction
 
-	}
-
-	TEST_METHOD(test_sort_dices) {
-
-		// Initialization
-
-		// Assertions
-
-
-		// Destruction
-
-	}
+		}
 
 	};
 }

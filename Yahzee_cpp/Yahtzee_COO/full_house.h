@@ -18,6 +18,7 @@ namespace coo_yahtzee {
 		int get_score_preview(const std::vector<dice*>&) const override;
 
 		// Tests
+		friend class Test_Figure;
 
 	};
 
