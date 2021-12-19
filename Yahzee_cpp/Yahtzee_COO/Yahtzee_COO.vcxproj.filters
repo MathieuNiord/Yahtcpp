@@ -95,6 +95,5 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Makefile" />
-    <None Include="yahtzee" />
   </ItemGroup>
 </Project>
