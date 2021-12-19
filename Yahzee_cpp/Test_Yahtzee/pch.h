@@ -8,19 +8,5 @@
 #define PCH_H
 
 // ajouter les en-têtes à précompiler ici
-#include "../Yahzee/dice.h"
-#include "../Yahzee/display.h"
-#include "../Yahzee/figure.h"
-#include "../Yahzee/fig_superior.h"
-#include "../Yahzee/full_house.h"
-#include "../Yahzee/game.h"
-#include "../Yahzee/many_of_kind.h"
-#include "../Yahzee/player.h"
-#include "../Yahzee/resources.h"
-#include "../Yahzee/roll.h"
-#include "../Yahzee/score.h"
-#include "../Yahzee/straight.h"
-#include "../Yahzee/utils.h"
-#include "../Yahzee/yahtzee.h"
 
 #endif //PCH_H

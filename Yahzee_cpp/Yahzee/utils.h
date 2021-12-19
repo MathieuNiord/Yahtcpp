@@ -6,17 +6,15 @@
 
 namespace coo_yahtzee {
 
-	// === ERRORS ===
-
-	const std::string error_01("Votre choix est malheureusement indisponible pour le moment. SVP retentez.");
-	const std::string error_02("On va fermer les yeux pour cette fois...On reprend depuis le depart.");
-	const std::string error_03("Franchement, ca arrive a tout le monde de se tromper. On reprend.");
-	const std::string error_04("Bah alors ? C'est pas une reponse ca...");
-	const std::string error_05("Mince mais vous etes bigleux ??? C'est quoi cette reponse tecla ?");
-
 	// Return a random value
 	static int get_random(const int& min, const int& max) {
 		return rand() % max + min;
+	}
+
+	// Return a boss name
+	static std::string get_enemy_tag() {
+		const int which_one = get_random(0, bosses.size());
+		return bosses.at(which_one);
 	}
 
 	// Return an error
@@ -25,12 +23,12 @@ namespace coo_yahtzee {
 		const int which_one = get_random(0, 1000);
 
 		switch (which_one % 5) {
-		case 1: return "\n\n" + error_01 + "\n\n";
-		case 2: return "\n\n" + error_02 + "\n\n";
-		case 3: return "\n\n" + error_03 + "\n\n";
-		case 4: return "\n\n" + error_04 + "\n\n";
-		case 0: return "\n\n" + error_05 + "\n\n";
-		default: return "\n\nCe choix n'existe pas.\n\n";
+		case 1: return "\n\nPROGRAMME : " + error_01 + "\n\n";
+		case 2: return "\n\nPROGRAMME : " + error_02 + "\n\n";
+		case 3: return "\n\nPROGRAMME : " + error_03 + "\n\n";
+		case 4: return "\n\nPROGRAMME : " + error_04 + "\n\n";
+		case 0: return "\n\nPROGRAMME : " + error_05 + "\n\n";
+		default: return "\n\nPROGRAMME : Ce choix n'existe pas.\n\n";
 		}
 	}
 
@@ -66,7 +64,18 @@ namespace coo_yahtzee {
 		return true;
 	}
 
-    static int get_input_int(int min, int max) {
+	static void clear_screen() {
+		std::cout << "\033[2J\033[1;1H"; // For cleaning
+	}
+
+	// Wait a char and clean the screen
+	static void wait_and_clean_screen(const std::string& msg = "Appuyez sur Entree pour continuer...") {
+		std::cout << msg;
+		std::getchar();
+		clear_screen();
+	}
+
+	static int get_input_int(int min = INT_MIN, int max = INT_MAX) {
 
         try {
             std::string line;
@@ -81,26 +90,4 @@ namespace coo_yahtzee {
         }
     }
 
-    static std::vector<int> get_input_int_vector() {
-
-		std::string s;
-		getline(std::cin, s);
-        std::vector<int> ans;
-        std::stringstream stream(s);
-
-        int pos;
-        std::string temp;
-
-        while (!stream.eof()) {
-
-            stream >> temp;
-
-            if (std::stringstream(temp) >> pos)
-                ans.push_back(pos);
-
-            temp = "";
-        }
-
-        return ans;
-    }
 }

@@ -37,8 +37,33 @@ namespace coo_yahtzee {
 
 	// Player
 	constexpr int max_advertisement = 3;
+	constexpr int elimination_code = 81647;	// Elimination code
+	constexpr int char_error_code = 45616;	// Error code when input is a string rather than an integer
+
+	// AI
+	constexpr int min_score_ai = 10;
 
 	// Game
 	constexpr int total_rounds = 13;
+
+	// Errors
+	const std::string error_01("Votre choix est malheureusement indisponible pour le moment. SVP retentez.");
+	const std::string error_02("On va fermer les yeux pour cette fois...On reprend depuis le depart.");
+	const std::string error_03("Franchement, ca arrive a tout le monde de se tromper. On reprend.");
+	const std::string error_04("Bah alors ? C'est pas une reponse ca...");
+	const std::string error_05("Mince mais vous etes bigleux ??? C'est quoi cette reponse tecla ?");
+
+	// AI names
+	const std::vector <std::string> bosses =
+	{
+		"Revolver Ocelot",
+		"Sarah Kerrigan",
+		"Arthas Menethil",
+		"GLadOS",
+		"Sephiroth",
+		"Dark Malak",
+		"Hakim Berrier-Felhaouari",
+		"Nicolas"
+	};
 
 }

@@ -18,12 +18,12 @@ namespace coo_yahtzee {
 
 		// --- Methods ---
 
-		// --- Getter ---
-		int get_score(const std::vector<dice*>&) const override;
+		int get_score_preview(const std::vector<dice*>&) const override;
 
 		// --- Setter ---
 		void set_score(const std::vector<dice*>&) override;
-		friend class test_figure;
+
+		// Tests
 
 	};
 

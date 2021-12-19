@@ -2,21 +2,22 @@
 
 #include "roll.h"
 
-coo_yahtzee::roll::roll(std::vector<dice*>& dices)
-	: dices_(dices) {
+coo_yahtzee::roll::roll(const std::vector<dice*>& dices) {
+
+	dices_.reserve(number_of_dices);
+
+	for (const dice* d : dices)
+		dices_.push_back(new dice(*d));
+
 	round_count_ = 0;
 }
 
-coo_yahtzee::roll::roll(const roll& r)
-	: dices_(r.dices_), round_count_(r.round_count_)
-{}
-
 coo_yahtzee::roll::~roll() {
 
-	/*for (const dice* d : dices_)
+	for (const dice* d : dices_)
 		delete d;
 
-	dices_.clear();*/
+	dices_.clear();
 }
 
 void coo_yahtzee::roll::roll_dices() {
@@ -53,12 +54,18 @@ int coo_yahtzee::roll::get_number_of(const int& value) const {
 
 std::ostream& coo_yahtzee::operator<<(std::ostream& out, const roll& r) {
 
-	out << "========= Lancer =========\n\n";
+	std::string dices;
+
+	out << "\n\n\t ============= LANCER =============\n"
+		<< "\t|                                   |\n"
+		<< "\t|   Jeu :";
 
 	for (int pos = 0; pos < number_of_dices; pos++)
-		out << "[" << pos + 1 << "] : " << r.dices_.at(pos)->get_value() << std::endl;
+		dices.append(" " + r.dices_.at(pos)->to_string());
 
-	out << "\n==========================\n";
+	out << std::left << std::setw(27) << dices << "|\n"
+		<< "\t|                                   |\n"
+		<< "\t ===================================\n";
 
 	return out;
 }

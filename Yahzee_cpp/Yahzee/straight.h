@@ -13,13 +13,11 @@ namespace coo_yahtzee {
 
 		straight(const std::string&);
 
-	protected:
-
-
 	private:
 
-		int get_score(const std::vector<dice*>&) const override;
-		friend class test_figure;
+		int get_score_preview(const std::vector<dice*>&) const override;
+
+		// Tests
 
 	};
 
@@ -28,7 +26,7 @@ namespace coo_yahtzee {
 		: figure(name) {}
 
 	template <const int Number>
-	int straight<Number>::get_score(const std::vector<dice*>& game) const {
+	int straight<Number>::get_score_preview(const std::vector<dice*>& game) const {
 
         //since dices are sorted by value we can iterate dices and count if there is v next values
 

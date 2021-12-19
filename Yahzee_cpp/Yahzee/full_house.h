@@ -14,8 +14,10 @@ namespace coo_yahtzee {
 
 	private:
 
-		int get_score(const std::vector<dice*>&) const override;
-		friend class test_figure;
+		// --- Methods ---
+		int get_score_preview(const std::vector<dice*>&) const override;
+
+		// Tests
 
 	};
 

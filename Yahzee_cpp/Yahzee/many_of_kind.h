@@ -13,13 +13,12 @@ namespace coo_yahtzee {
 
 		many_of_kind(const std::string&);
 
-	protected:
-
-
 	private:
 
-		int get_score(const std::vector<dice*>&) const override;
-		friend class test_figure;
+		// --- Methods ---
+		int get_score_preview(const std::vector<dice*>&) const override;
+
+		// Tests
 
 	};
 
@@ -29,7 +28,7 @@ namespace coo_yahtzee {
 
 
 	template <const int Number>
-	int many_of_kind<Number>::get_score(const std::vector<dice*>& game) const {
+	int many_of_kind<Number>::get_score_preview(const std::vector<dice*>& game) const {
 
 		std::vector<int> count(max_dice_value, 0);
 

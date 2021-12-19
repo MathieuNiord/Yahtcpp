@@ -12,27 +12,34 @@ namespace coo_yahtzee {
 	public:
 
 		dice();
+		dice(const dice&);
 
-		//test
-		void roll();
-
-		// Getter
+		// --- Getter ---
 		int get_value() const;
+
+		// --- Display ---
+		std::string to_string() const;
 
 	private:
 
+		// --- Attributes ---
 		int value_;
 
-		bool operator<(const dice&) const;
+		// --- Methods ---
+		void roll();
 
+		// --- Comparison ---
+		bool operator<(const dice&) const;
 		static bool compare_dice_pointers(const dice* d01, const dice* d02) {
 			return (d01->get_value() < d02->get_value());
 		}
 
+		// Friends
 		friend class roll;
 		friend class figure;
-		friend class test_figure;
+
+		// Tests
+		friend class Test_Roll;
 
 	};
-
 }

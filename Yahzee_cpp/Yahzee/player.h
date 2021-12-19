@@ -15,24 +15,25 @@ namespace coo_yahtzee {
 	public:
 
 		player(const std::string& name);
-		~player();
+		virtual ~player();
 
 	protected:
 
+		// --- Attributes ---
 		const std::string c_name_;
 		score* player_score_;
 
 		// --- Methods ---
 		virtual void play_round(roll&);
-		void play_turn(std::vector<dice*>&);
+		virtual void play_turn(const std::vector<dice*>&);
 
 	private:
 
+		// --- Attributes ---
 		bool eliminated_;
 		int advertise_count_;
 
 		// --- Methods ---
-
 		int advertise_player(const std::string& input);	// Check the player's input and advertises him/her
 		int player_choice(const int&);			// Display the player choices
 		void player_roll_choice(roll&);			// Display the player choices for a new roll
@@ -45,12 +46,14 @@ namespace coo_yahtzee {
 
 		// --- Comparison ---
 		static bool compare_player_pointers(const player* p01, const player* p02) {
-			return (p01->get_score_result() < p02->get_score_result());
+			return (p01->get_score_result() > p02->get_score_result());
 		}
 
+		// Friends
 		friend std::ostream& operator<<(std::ostream& out, const player&);
 		friend class game;
-		friend class test_player;
+
+		// Tests
 
 	};
 

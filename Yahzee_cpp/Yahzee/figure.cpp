@@ -8,7 +8,7 @@ coo_yahtzee::figure::figure(const std::string& name)
 	scored_ = false;
 }
 
-int coo_yahtzee::figure::get_score(const std::vector<dice*>& game) const {
+int coo_yahtzee::figure::get_score_preview(const std::vector<dice*>& game) const {
 
 	int score = 0;
 
@@ -20,7 +20,7 @@ int coo_yahtzee::figure::get_score(const std::vector<dice*>& game) const {
 
 void coo_yahtzee::figure::set_score(const std::vector<dice*>& game) {
 	scored_ = true;
-	score_ = get_score(game);
+	score_ = get_score_preview(game);
 }
 
 void coo_yahtzee::figure::eliminate() {
@@ -33,15 +33,6 @@ std::ostream& coo_yahtzee::figure::to_string(std::ostream& out) const {
 	return out;
 }
 
-std::ostream& coo_yahtzee::figure::preview(std::ostream& out) const {
-	out << c_name_ << " (" << score_ << ")";
-	return out;
-}
-
 std::ostream& coo_yahtzee::operator<<(std::ostream& out, const figure& fig) {
-
-	if (!fig.scored_)
-		return fig.preview(out);
-
 	return fig.to_string(out);
 }

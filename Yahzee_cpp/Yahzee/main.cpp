@@ -9,24 +9,68 @@ using namespace coo_yahtzee;
 
 int main(int argc, char* argv[]) {
 
-    display_home();
-    int mod;
-    int number_player;
-
-    std::cout
-        << "Veuillez choisir un mode de jeu :\n"
-        << "1. Sans Intelligence Artificielle\n"
-        << "2. Avec Intelligence Artificielle\n"
-        << "Choix : ";
-    mod = get_input_int(1, 2);
-
-    cout << "How many players : ";
-    number_player = get_input_int(1, 10);
-    
 	srand((unsigned)time(0));
-    
-    game g(number_player,mod);
-    g.play();
+
+    display_home();
+
+    while (true) {
+
+        const int choice = display_menu();
+
+        // Launch solo game
+        if (choice == 1) {
+
+            std::string name;
+
+            std::cout << "\nQuel sera votre pseudo ?\n\nJe m'appelle ";
+            std::getline(std::cin, name);
+
+            clear_screen();
+
+            const int nb_bots = display_solo_config();
+
+            if (nb_bots > 0) {
+                game game(name, nb_bots);
+                wait_and_clean_screen("\nAppuyez sur Entree pour lancer le jeu...");
+                game.play();
+            }
+
+            else
+                speedrun(name);
+
+            break;
+        }
+
+        // Launch multiplayers game
+    	if (choice == 2) {
+
+            clear_screen();
+
+            const int nb_players = display_multi_config();
+
+            if (nb_players > 1) {
+                game game(nb_players);
+                wait_and_clean_screen("\nAppuyez sur Entree pour lancer le jeu...");
+                game.play();
+            }
+
+            else
+                speedrun();
+
+            break;
+        }
+
+        // Display rules and return to the menu
+    	if (choice == 3) {
+            clear_screen();
+            display_rules();
+            wait_and_clean_screen("Appuyez sur Entree pour revenir au menu...");
+        }
+
+    	else
+    		std::cout << get_error();
+
+    }
 
 	return EXIT_SUCCESS;
 

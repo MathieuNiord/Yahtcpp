@@ -7,7 +7,7 @@ coo_yahtzee::yahtzee::yahtzee()
 	count_ = 0;
 }
 
-int coo_yahtzee::yahtzee::get_score(const std::vector<dice*>& game) const {
+int coo_yahtzee::yahtzee::get_score_preview(const std::vector<dice*>& game) const {
     std::vector<int> count_values(max_dice_value, 0);
 
     for (const dice* d : game){
@@ -23,7 +23,7 @@ int coo_yahtzee::yahtzee::get_score(const std::vector<dice*>& game) const {
 
 void coo_yahtzee::yahtzee::set_score(const std::vector<dice*>& game) {
 
-	score_ += get_score(game);
+	score_ += get_score_preview(game);
 	count_++;
 
 	if (count_ == 2)

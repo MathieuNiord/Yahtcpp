@@ -12,8 +12,8 @@ namespace coo_yahtzee {
 
 	public:
 
-		roll(std::vector<dice*>& dices);
-		roll(const roll&);
+		roll(const std::vector<dice*>& dices);
+		roll(const roll&) = default;
 		~roll();
 
 	private:
@@ -35,11 +35,13 @@ namespace coo_yahtzee {
 		// Get the count of a value among dices
 		int get_number_of(const int& value) const;
 
+		// Friends
 		friend std::ostream& operator<<(std::ostream& out, const roll&);
 		friend class player;
 		friend class ai_player;
 
-		friend class test_roll;
+		// Tests
+		friend class Test_Roll;
 
 	};
 

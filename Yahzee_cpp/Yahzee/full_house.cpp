@@ -6,8 +6,7 @@ coo_yahtzee::full_house::full_house()
 	: figure("Full")
 {}
 
-int coo_yahtzee::full_house::get_score(const std::vector<dice*>& game) const {
-
+int coo_yahtzee::full_house::get_score_preview(const std::vector<dice*>& game) const {
 
     int max = 0;
     int second_max = 0;

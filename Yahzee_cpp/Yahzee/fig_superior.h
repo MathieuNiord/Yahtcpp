@@ -15,19 +15,21 @@ namespace coo_yahtzee {
 
 	private:
 
-		int get_score(const std::vector<dice*>&) const override;
+		// --- Methods ---
+		int get_score_preview(const std::vector<dice*>&) const override;
 
+		// Friends
 		friend class score;
-		friend class test_figure;
+
+		// Tests
 	};
 
 	template <const int Value>
 	fig_superior<Value>::fig_superior() : figure(std::to_string(Value))
 	{}
 
-
 	template <const int Value>
-	int fig_superior<Value>::get_score(const std::vector<dice*>& game) const {
+	int fig_superior<Value>::get_score_preview(const std::vector<dice*>& game) const {
 
 		int count = 0;
 
