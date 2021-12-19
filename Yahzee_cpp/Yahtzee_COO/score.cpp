@@ -120,6 +120,8 @@ void coo_yahtzee::score::score_all() {
 		if (!inf->scored_)
 			inf->eliminate();
 
+	remaining_count_ = 0;
+
 	compute_score();
 }
 
