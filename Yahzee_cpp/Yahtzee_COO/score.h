@@ -51,6 +51,7 @@ namespace coo_yahtzee {
 		friend class ai_player;
 
 		// Tests
+		friend class Test_Score;
 
 	};
 

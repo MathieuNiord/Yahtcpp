@@ -54,6 +54,7 @@ namespace coo_yahtzee {
 		friend class game;
 
 		// Tests
+		friend class Test_Player;
 
 	};
 
