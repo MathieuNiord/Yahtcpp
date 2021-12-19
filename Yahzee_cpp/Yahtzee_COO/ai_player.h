@@ -20,6 +20,7 @@ namespace coo_yahtzee {
 		void play_round(roll&) override;
 
 		// Tests
+		friend class Test_Player;
 
 	};
 }

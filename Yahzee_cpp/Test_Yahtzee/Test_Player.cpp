@@ -97,5 +97,29 @@ namespace coo_yahtzee {
 			// Destruction
 			delete player_;
 		}
+
+		TEST_METHOD(test_bot_round) {
+
+			// Initialization
+			std::vector<dice*> dices;
+
+			dices.reserve(number_of_dices);
+
+			for (int i = 0; i < number_of_dices; i++)
+				dices.push_back(new dice);
+
+			roll roll_(dices);
+			roll_.roll_dices();
+
+			auto* bot_ = new ai_player(bot_name);
+			bot_->play_round(roll_);
+			bot_->score_all();
+
+			// Assertions
+			Assert::AreNotEqual(0, bot_->get_score_result());
+
+			// Destruction
+			delete bot_;
+		}
 	};
 }

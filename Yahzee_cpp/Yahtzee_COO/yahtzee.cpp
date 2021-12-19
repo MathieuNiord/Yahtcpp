@@ -8,6 +8,7 @@ coo_yahtzee::yahtzee::yahtzee()
 }
 
 int coo_yahtzee::yahtzee::get_score_preview(const std::vector<dice*>& game) const {
+
     std::vector<int> count_values(max_dice_value, 0);
 
     for (const dice* d : game){

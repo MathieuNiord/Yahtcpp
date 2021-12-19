@@ -42,6 +42,7 @@ namespace coo_yahtzee {
 
 		// Tests
 		friend class Test_Roll;
+		friend class Test_Player;
 
 	};
 
