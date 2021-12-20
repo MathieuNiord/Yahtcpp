@@ -31,9 +31,7 @@ int main(int argc, char* argv[]) {
 
             if (nb_bots > 0) {
                 game game(name, nb_bots);
-                wait_and_clean_screen("\nAppuyez sur Entree pour lancer le jeu...");
                 game.play();
-                wait_and_exit("\nAppuez sur Entree pour quitter...");
             }
 
             else
@@ -51,9 +49,7 @@ int main(int argc, char* argv[]) {
 
             if (nb_players > 1) {
                 game game(nb_players);
-                wait_and_clean_screen("\nAppuyez sur Entree pour lancer le jeu...");
                 game.play();
-                wait_and_exit("\nAppuez sur Entree pour quitter...");
             }
 
             else
@@ -71,9 +67,7 @@ int main(int argc, char* argv[]) {
 
     	else
     		std::cout << get_error();
-
     }
 
 	return EXIT_SUCCESS;
-
 }

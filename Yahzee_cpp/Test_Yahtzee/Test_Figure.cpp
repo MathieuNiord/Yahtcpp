@@ -118,6 +118,8 @@ namespace coo_yahtzee {
 		TEST_METHOD(test_figure_score) {
 
 			std::vector<dice*> dices;
+			dices.reserve(number_of_dices);
+
 			for (int i = 0; i < number_of_dices; i++) {
 				dices.push_back(new dice);
 				dices.at(i)->value_ = i + 1;
@@ -137,6 +139,11 @@ namespace coo_yahtzee {
 			Assert::AreEqual(30, little->get_score_preview(dices));
 			Assert::AreEqual(0, yaht->get_score_preview(dices));
 
+			for (int i = 0; i < number_of_dices; i++) {
+				dices.at(i)->value_ = 5;
+			}
+
+			Assert::AreEqual(50, yaht->get_score_preview(dices));
 
 			delete superior;
 			delete full;

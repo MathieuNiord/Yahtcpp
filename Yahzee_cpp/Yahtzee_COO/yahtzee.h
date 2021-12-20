@@ -17,7 +17,6 @@ namespace coo_yahtzee {
 		int count_;
 
 		// --- Methods ---
-
 		int get_score_preview(const std::vector<dice*>&) const override;
 
 		// --- Setter ---

@@ -56,6 +56,8 @@ void coo_yahtzee::game::play() {
 
 	int round = 0;
 
+	wait_and_clean_screen("\nAppuyez sur Entree pour lancer le jeu...");
+
 	// While the game isn't finished and the number of active players is upper than 1
 	while (round < total_rounds && eliminated_count_ < number_of_players_ - 1) {
 
@@ -84,6 +86,7 @@ void coo_yahtzee::game::play() {
 
 		round++;
 	}
+
     finish();
 }
 
@@ -127,6 +130,8 @@ void coo_yahtzee::game::finish() {
 	std::cout
 		<< "\t|                                       |\n"
 		<< "\t =======================================\n\n";
+
+	wait_and_exit("\nAppuez sur Entree pour quitter...");
 }
 
 void coo_yahtzee::game::sort_players() {

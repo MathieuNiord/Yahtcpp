@@ -11,12 +11,12 @@ int coo_yahtzee::yahtzee::get_score_preview(const std::vector<dice*>& game) cons
 
     std::vector<int> count_values(max_dice_value, 0);
 
-    for (const dice* d : game){
+    for (const dice* d : game) {
+
+		count_values.at(d->get_value() - 1)++;
 
         if (count_values.at(d->get_value() - 1) == number_of_dices)
             return (count_ + 1) * yahtzee_result;
-
-        count_values.at(d->get_value() - 1)++;
     }
 
     return 0;
